@@ -15,7 +15,16 @@
     "prepare": "husky install",
     "commit": "cz",
     "client:start": "cd client && npm run dev",
-    "server:start": "cd server && npm run"
+    "server:start": "cd server && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LarsKemper/stdm.git"
+  },
+  "author": "@LarsKemper, @Deristes, @Erker158",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LarsKemper/stdm/issues"
   },
   "devDependencies": {
     "commitizen": "^4.2.5",
