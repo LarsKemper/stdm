@@ -1,0 +1,14 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+npx --no-install commitlint --edit $1 ||
+(
+    echo "${RED}Check your commit message ☓${NC}";
+    false;
+)
+
+echo "\n${GREEN}Commit message passed ✓${NC}";

@@ -1,0 +1,24 @@
+{
+  "name": "stdm",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "client",
+      "server"
+    ],
+    "nohoist": [
+      "**"
+    ]
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "cz",
+    "client:start": "cd client && npm run dev",
+    "server:start": "cd server && npm run"
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.5",
+    "husky": "^8.0.2"
+  }
+}
