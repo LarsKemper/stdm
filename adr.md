@@ -1,16 +1,18 @@
-\*\*General
+# STDM - ADR
 
-Thema: Spielplanverwaltung - Frauen Fussball
-Roles: Spieler, Mannschaft-Admin, Admin
+### General
+User-Roles: Player, Team-Admin, Site-Admin
 
-\*\*Tech
-
+### Tech
 Language: Typescript
-Frontend: Nextjs, TailwindCSS + Mantine
-Backend: Express
+
+Frontend: Next.js, Mantine.UI, Zustand
+
+Backend: Express.js
+
 Database: MySQL (Docker)
 
-\*\*Tables
+### Tables
 
 - Mannschaften
 - Spieler

@@ -1,0 +1,30 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+npm run format
+
+npm run check:format ||
+(
+    echo "${RED}Prettier Check Failed. Run npm run format, add changes and try commit again. ☓${NC}";
+    false;
+)
+echo "${GREEN}Prettier passed ✓${NC}";
+
+npm run check:lint ||
+(
+    echo "${RED}ESLint Check Failed. Make the required changes listed above, add changes and try to commit again. ☓${NC}";
+    false; 
+)
+echo "${GREEN}ESLint passed ✓${NC}";
+
+
+npm run check:types ||
+(
+    echo "${RED}Failed Type Check. Make the changes required above. ☓${NC}";
+    false;
+)
+echo "${GREEN}Typescript Type Check passed ✓${NC}";

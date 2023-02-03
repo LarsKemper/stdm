@@ -2,10 +2,11 @@ version: '3.3'
 services:
   stdm-db:
     image: mysql:5.7
+    container_name: stdm-db
     restart: always
     environment:
       MYSQL_DATABASE: 'stdm-db'
-      MYSQL_USER: 'root'
+      MYSQL_USER: 'mysql'
       MYSQL_PASSWORD: 'mysql'
       MYSQL_ROOT_PASSWORD: 'root'
     ports:
@@ -14,5 +15,17 @@ services:
       - '3306'
     volumes:
       - stdm-db:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - stdm-db
+    environment:
+      PMA_HOST: stdm-db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
 volumes:
   stdm-db:

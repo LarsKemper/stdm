@@ -1,0 +1,51 @@
+name: client:lint
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'client/**'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'client/**'
+
+jobs:
+  lint:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Setup node env
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+
+      - name: Cache node_modules
+        uses: actions/cache@v2.1.4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: cd client && npm install
+
+      - name: Check format
+        run: cd client && npm run check:format
+
+      - name: Check lint
+        run: cd client && npm run check:lint
+
+      - name: Check types
+        run: cd client && npm run check:types

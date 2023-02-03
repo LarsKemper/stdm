@@ -15,7 +15,11 @@
     "prepare": "husky install",
     "commit": "cz",
     "client:start": "cd client && npm run dev",
-    "server:start": "cd server && npm run start"
+    "server:start": "cd server && npm run start",
+    "check:types": "cd client && npm run check:types && cd ../server && npm run check:types",
+    "check:format": "cd client && npm run check:format && cd ../server && npm run check:format",
+    "check:lint": "cd client && npm run check:lint && cd ../server && npm run check:lint",
+    "format": "cd client && npm run format && cd ../server && npm run format"
   },
   "repository": {
     "type": "git",
@@ -27,7 +31,13 @@
     "url": "https://github.com/LarsKemper/stdm/issues"
   },
   "devDependencies": {
+    "@types/express": "^4.17.16",
+    "@types/jsonwebtoken": "^9.0.1",
     "commitizen": "^4.2.5",
     "husky": "^8.0.2"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0",
+    "yup": "^0.32.11"
   }
 }
