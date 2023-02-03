@@ -30,7 +30,7 @@ export async function createUser(user: User): Promise<number> {
       [user.id, user.firstName, user.lastName, user.email, hash],
       (err, result) => {
         if (err) {
-          reject(err);
+          return reject(err);
         }
 
         resolve((result as OkPacket).insertId);
@@ -50,7 +50,7 @@ export async function getUserByEmail(email: string): Promise<User | undefined> {
   return new Promise((resolve, reject) => {
     conn.query(sql, email, (err, result) => {
       if (err) {
-        reject(err);
+        return reject(err);
       }
 
       const row = (<RowDataPacket>result)[0];
@@ -84,7 +84,7 @@ export async function getUserById(id: number): Promise<User | undefined> {
   return new Promise((resolve, reject) => {
     conn.query(sql, id, (err, result) => {
       if (err) {
-        reject(err);
+        return reject(err);
       }
 
       const row = (<RowDataPacket>result)[0];
