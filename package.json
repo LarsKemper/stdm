@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon index.ts",
+    "build": "tsc",
     "check:all": "npm run check:format && npm run check:lint && npm run check:types && npm run build",
     "check:types": "tsc --pretty --noEmit",
     "check:format": "prettier --check .",
@@ -16,10 +17,12 @@
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "cron": "^2.2.0",
+    "db-migrate": "^0.11.13",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "helmet": "^6.0.1",
+    "mysql2": "^3.1.0",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1"
   },
@@ -27,10 +30,12 @@
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.13",
     "@types/cron": "^2.0.0",
+    "@types/mysql": "^2.15.21",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "eslint": "^8.33.0",
+    "eslint-plugin-jsdoc": "^39.8.0",
     "tslib": "^2.5.0",
     "typescript": "^4.9.3"
   }
