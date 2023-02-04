@@ -42,7 +42,7 @@ export async function register(
       throw new InternalServerError('Could not create user');
     }
 
-    const user = await getUserById(req.body.email);
+    const user = await getUserById(userId);
 
     if (!user) {
       throw new InternalServerError();
@@ -50,16 +50,14 @@ export async function register(
 
     res.status(201).json({
       success: true,
-      data: {
-        user: {
-          id: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          role: user.role,
-        },
-        token: generateToken(user.id),
+      user: {
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        role: user.role,
       },
+      token: generateToken(user.id),
     });
   } catch (err) {
     next(err);
@@ -100,16 +98,14 @@ export async function login(req: Request, res: Response, next: NextFunction) {
 
     res.status(200).json({
       success: true,
-      data: {
-        user: {
-          id: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          role: user.role,
-        },
-        token: generateToken(user.id),
+      user: {
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        role: user.role,
       },
+      token: generateToken(user.id),
     });
   } catch (err) {
     next(err);
