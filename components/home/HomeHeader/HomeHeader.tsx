@@ -1,107 +1,23 @@
 import { useState } from 'react';
 import {
-  createStyles,
   Header,
   Container,
   Group,
   Burger,
   Paper,
   Transition,
+  ActionIcon,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
 import StColorToggle from '@components/StColorToggle';
 import StLanguageSelect from '@components/StLanguageSelect/StLanguageSelect';
 import StLogo from '@components/StLogo';
+import { homeHeaderStyles, HEADER_HEIGHT } from './HomeHeader.styles';
+import useAuthService from '@modules/auth/useAuthService';
+import { IconLogout } from '@tabler/icons';
 
-const HEADER_HEIGHT = 60;
-
-const useStyles = createStyles((theme) => ({
-  root: {
-    position: 'relative',
-    zIndex: 1,
-  },
-
-  dropdown: {
-    position: 'absolute',
-    top: HEADER_HEIGHT,
-    left: 0,
-    right: 0,
-    zIndex: 0,
-    borderTopRightRadius: 0,
-    borderTopLeftRadius: 0,
-    borderTopWidth: 0,
-    overflow: 'hidden',
-
-    [theme.fn.largerThan('sm')]: {
-      display: 'none',
-    },
-  },
-
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '100%',
-  },
-
-  links: {
-    [theme.fn.smallerThan('sm')]: {
-      display: 'none',
-    },
-  },
-
-  burger: {
-    [theme.fn.largerThan('sm')]: {
-      display: 'none',
-    },
-  },
-
-  link: {
-    display: 'block',
-    lineHeight: 1,
-    padding: '8px 12px',
-    borderRadius: theme.radius.sm,
-    textDecoration: 'none',
-    color:
-      theme.colorScheme === 'dark'
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
-    fontSize: theme.fontSizes.sm,
-    fontWeight: 500,
-
-    '&:hover': {
-      backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
-    },
-
-    [theme.fn.smallerThan('sm')]: {
-      borderRadius: 0,
-      padding: theme.spacing.md,
-    },
-  },
-
-  linkActive: {
-    '&, &:hover': {
-      backgroundColor: theme.fn.variant({
-        variant: 'light',
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
-        .color,
-    },
-  },
-
-  toolbox: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '100%',
-    gap: '10px',
-  },
-}));
+const useStyles = homeHeaderStyles;
 
 export interface HeaderProps {
   links: { link: string; label: string }[];
@@ -112,6 +28,7 @@ function HomeHeader({ links }: HeaderProps) {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
+  const { logout } = useAuthService();
 
   const items = links.map((link) => (
     <Link
@@ -136,6 +53,23 @@ function HomeHeader({ links }: HeaderProps) {
           {items}
         </Group>
         <div className={classes.toolbox}>
+          <ActionIcon
+            size="lg"
+            onClick={() => logout()}
+            sx={(theme) => ({
+              backgroundColor:
+                theme.colorScheme === 'dark'
+                  ? theme.colors.dark[6]
+                  : theme.colors.gray[0],
+              color:
+                theme.colorScheme === 'dark'
+                  ? theme.colors.red[4]
+                  : theme.colors.red[6],
+            })}
+          >
+            <IconLogout size={18} />
+          </ActionIcon>
+
           <StColorToggle />
           <StLanguageSelect small />
         </div>

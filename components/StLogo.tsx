@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
 function StLogo() {
   const { classes } = useStyles();
 
-  return <h2 className={classes.name}>STDM</h2>;
+  return <h2 className={classes.name}>DDL</h2>;
 }
 
 export default StLogo;

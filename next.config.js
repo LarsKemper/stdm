@@ -7,7 +7,8 @@ module.exports = nextTranslate({
     domains: [],
   },
   env: {
-    API_BASE: process.env.SERVER_URL,
+    SERVER_URL: process.env.SERVER_URL,
+    API_VERSION: process.env.API_VERSION,
   },
   i18n: {
     locales: ['en', 'de'],

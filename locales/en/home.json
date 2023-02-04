@@ -1,1 +1,18 @@
-{}
+{
+  "general": {
+    "page-title": "Home",
+    "headline--highlight-1": "Lorem Impsum",
+    "headline--no-highlight-1": "dolor sit amet",
+    "headline--highlight-2": "consetetur",
+    "headline--no-highlight-2": "sadipscing elitr",
+    "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam",
+    "action-button": "Get started"
+  },
+  "header": {
+    "item-home-label": "Home",
+    "item-app-label": "App"
+  },
+  "footer": {
+    "item-imprint-label": "Legal Notice"
+  }
+}
