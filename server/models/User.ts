@@ -19,7 +19,7 @@ export const userSchema = object<Record<keyof User, AnySchema>>().shape({
  */
 export async function createUser(user: User): Promise<number> {
   const sql =
-    'INSERT INTO Users (id, firstName, lastName, email, password) VALUES (?, ?, ?, ?, ?)';
+    'INSERT INTO users (id, firstName, lastName, email, password) VALUES (?, ?, ?, ?, ?)';
 
   const salt = bcrypt.genSaltSync(10);
   const hash = bcrypt.hashSync(user.password, salt);
@@ -45,7 +45,7 @@ export async function createUser(user: User): Promise<number> {
  * @returns {Promise<User>} Promise which resolves to the result of the query
  */
 export async function getUserByEmail(email: string): Promise<User | undefined> {
-  const sql = 'SELECT * FROM Users WHERE email = ?';
+  const sql = 'SELECT * FROM users WHERE email = ?';
 
   return new Promise((resolve, reject) => {
     conn.query(sql, email, (err, result) => {
@@ -79,7 +79,7 @@ export async function getUserByEmail(email: string): Promise<User | undefined> {
  * @returns {Promise<User>} Promise which resolves to the result of the query
  */
 export async function getUserById(id: number): Promise<User | undefined> {
-  const sql = 'SELECT * FROM Users WHERE id = ?';
+  const sql = 'SELECT * FROM users WHERE id = ?';
 
   return new Promise((resolve, reject) => {
     conn.query(sql, id, (err, result) => {

@@ -8,6 +8,8 @@ import {
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import BfNavProgress from '@components/StNavProgress';
+import { stTheme } from 'styles/theme';
+import { NotificationsProvider } from '@mantine/notifications';
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -34,15 +36,18 @@ export default function App(props: AppProps) {
         withGlobalStyles
         withNormalizeCSS
         theme={{
+          ...stTheme,
           colorScheme: colorScheme,
         }}
       >
-        <QueryClientProvider client={queryClient}>
-          <Hydrate state={pageProps.dehydratedState}>
-            <BfNavProgress />
-            <Component {...pageProps} />
-          </Hydrate>
-        </QueryClientProvider>
+        <NotificationsProvider position="top-right">
+          <QueryClientProvider client={queryClient}>
+            <Hydrate state={pageProps.dehydratedState}>
+              <BfNavProgress />
+              <Component {...pageProps} />
+            </Hydrate>
+          </QueryClientProvider>
+        </NotificationsProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   );

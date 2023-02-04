@@ -1,8 +1,12 @@
 import { createConnection, Connection } from 'mysql2';
 import { dbHost, dbUser, dbPwd, dbName } from './contants';
-import fs from 'fs';
+//import fs from 'fs';
 
 export let conn: Connection;
+
+//const initQuery = fs.readFileSync('./resources/stdm-db-v1.sql', {
+//  encoding: 'utf-8',
+//});
 
 /**
  * Initializes the database
@@ -18,8 +22,14 @@ export function intiDatabase(): void {
       database: dbName,
     });
 
-    const sql = fs.readFileSync('./resources/stdm-db-v1.sql').toString();
-    conn.query(sql);
+    //conn.query(initQuery, (err) => {
+    //  if (err) {
+    //    throw new Error(`failed to initialize database: ${err}`);
+    //  }
+
+    // eslint-disable-next-line no-console
+    //  console.log('database initialized');
+    //});
   } catch (error) {
     throw new Error(`failed to initialized pool: ${error}`);
   }

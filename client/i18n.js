@@ -15,6 +15,8 @@ module.exports = {
   pages: {
     '*': ['common'],
     '/': ['home'],
+    '/auth/register': ['auth'],
+    '/auth/login': ['auth'],
   },
   interpolation: {
     format: (value, format, lang) => {

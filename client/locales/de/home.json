@@ -1,1 +1,18 @@
-{}
+{
+  "general": {
+    "page-title": "Start",
+    "headline--highlight-1": "Lorem Impsum",
+    "headline--no-highlight-1": "dolor sit amet",
+    "headline--highlight-2": "consetetur",
+    "headline--no-highlight-2": "sadipscing elitr",
+    "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam",
+    "action-button": "Starte durch"
+  },
+  "header": {
+    "item-home-label": "Start",
+    "item-app-label": "App"
+  },
+  "footer": {
+    "item-imprint-label": "Impressum"
+  }
+}

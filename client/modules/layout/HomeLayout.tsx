@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import dynamic from 'next/dynamic';
-import HomeHeader from '@components/home/HomeHeader';
+import HomeHeader from '@components/home/HomeHeader/HomeHeader';
 import StHead from '@components/StHead';
 
 interface HomeLayoutProps {

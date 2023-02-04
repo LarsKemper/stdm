@@ -1,16 +1,17 @@
 import { Container, Title, Text, Button, Group } from '@mantine/core';
-import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
 import StHead from '@components/StHead';
 import { notFoundPageStyles } from './PageNotFound.styles';
 import { NotFoundIcon } from '@icons';
+import { useRouter } from 'next/router';
 
 const useStyles = notFoundPageStyles;
 
 function NotFoundPage() {
   const { classes } = useStyles();
   const { t } = useTranslation(TranslationScopeEnum.COMMON);
+  const { back } = useRouter();
 
   return (
     <>
@@ -30,9 +31,9 @@ function NotFoundPage() {
                 {t('not-found.desc')}
               </Text>
               <Group position="center">
-                <Link href="/">
-                  <Button size="md">{t('not-found.back-button')}</Button>
-                </Link>
+                <Button onClick={back} size="md">
+                  {t('not-found.back-button')}
+                </Button>
               </Group>
             </div>
           </div>
