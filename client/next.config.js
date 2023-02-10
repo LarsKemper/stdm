@@ -4,7 +4,7 @@ const nextTranslate = require('next-translate');
 module.exports = nextTranslate({
   reactStrictMode: true,
   images: {
-    domains: [],
+    domains: ['upload.wikimedia.org'],
   },
   env: {
     SERVER_URL: process.env.SERVER_URL,

@@ -66,10 +66,6 @@ function useAuthService() {
           lastName: res.data.user.lastName,
           email: res.data.user.email,
         });
-        notification.success({
-          title: t('register.success-title'),
-          message: t('register.success-message'),
-        });
 
         router.push('/');
       })

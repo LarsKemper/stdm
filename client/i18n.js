@@ -17,6 +17,7 @@ module.exports = {
     '/': ['home'],
     '/auth/register': ['auth'],
     '/auth/login': ['auth'],
+    '/auth/forgot-password': ['auth'],
   },
   interpolation: {
     format: (value, format, lang) => {

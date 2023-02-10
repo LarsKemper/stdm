@@ -7,7 +7,7 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 1,
     color:
       theme.colorScheme === 'dark'
-        ? theme.colors.dark[0]
+        ? theme.colors.gray[0]
         : theme.colors.gray[7],
     fontWeight: 800,
   },
@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
 function StLogo() {
   const { classes } = useStyles();
 
-  return <h2 className={classes.name}>DDL</h2>;
+  return <h2 className={classes.name}>DLL</h2>;
 }
 
 export default StLogo;
