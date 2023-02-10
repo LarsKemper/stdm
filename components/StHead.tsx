@@ -10,7 +10,7 @@ function StHead(props: Props) {
   return (
     <Head>
       <meta charSet="UTF-8" />
-      <title>{`${props.title} - DDL`}</title>
+      <title>{`${props.title} - DLL`}</title>
       <meta name="description" content={props.desc} />
       <meta
         name="viewport"

@@ -103,7 +103,7 @@ function RegisterPage() {
                     sx={{ lineHeight: 1 }}
                   />
                   <Link href="/auth/forgot-password">
-                    <Anchor<'a'> href="#" size="sm">
+                    <Anchor<'a'> size="sm">
                       {t('register.forgot-password-action')}
                     </Anchor>
                   </Link>
