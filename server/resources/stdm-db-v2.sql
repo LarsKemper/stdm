@@ -10,22 +10,26 @@ CREATE TABLE IF NOT EXISTS user
      updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP()
   );
 
+    CREATE TABLE IF NOT EXISTS country
+  (
+     id      INT auto_increment PRIMARY KEY,
+     name    VARCHAR(50) NOT NULL,
+     iso     VARCHAR(2) NOT NULL,
+     flagUrl VARCHAR(255) NOT NULL
+  );
+
+
+CREATE TABLE IF NOT EXISTS gameday
+  (
+     id     INT auto_increment PRIMARY KEY,
+     number INT NOT NULL,
+     season VARCHAR(9) NOT NULL
+  );
+
   CREATE TABLE IF NOT EXISTS league
   (
      id             INT auto_increment PRIMARY KEY,
      name           VARCHAR(50) NOT NULL,
-  );
-
-  CREATE TABLE IF NOT EXISTS team
-  (
-     id             INT auto_increment PRIMARY KEY,
-     name           VARCHAR(50) NOT NULL,
-     clubId         INT,
-     leagueId       INT,
-     createdAt      TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-     updatedAt      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
-     FOREIGN KEY(clubId) REFERENCES club(id),
-     FOREIGN KEY(leagueId) REFERENCES league(id)
   );
 
   CREATE TABLE IF NOT EXISTS club
@@ -39,8 +43,18 @@ CREATE TABLE IF NOT EXISTS user
      stadium        VARCHAR(50) NOT NULL,
      address        VARCHAR(255) NOT NULL,
      city           VARCHAR(50) NOT NULL,
-     website        VARCHAR(255),
-     logoUrl        VARCHAR(255) NOT NULL
+  );
+
+  CREATE TABLE IF NOT EXISTS team
+  (
+     id             INT auto_increment PRIMARY KEY,
+     name           VARCHAR(50) NOT NULL,
+     clubId         INT NOT NULL,
+     leagueId       INT NOT NULL,
+     createdAt      TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+     updatedAt      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+     FOREIGN KEY(clubId) REFERENCES club(id),
+     FOREIGN KEY(leagueId) REFERENCES league(id)
   );
 
 CREATE TABLE IF NOT EXISTS player
@@ -56,22 +70,6 @@ CREATE TABLE IF NOT EXISTS player
      avatarUrl VARCHAR(255) NOT NULL,
      FOREIGN KEY(teamId) REFERENCES teams(id),
      FOREIGN KEY(countryId) REFERENCES countries(id)
-  );
-
-  CREATE TABLE IF NOT EXISTS country
-  (
-     id      INT auto_increment PRIMARY KEY,
-     name    VARCHAR(50) NOT NULL,
-     iso     VARCHAR(2) NOT NULL,
-     flagUrl VARCHAR(255)
-  );
-
-
-CREATE TABLE IF NOT EXISTS gameday
-  (
-     id     INT auto_increment PRIMARY KEY,
-     number INT NOT NULL,
-     season VARCHAR(9) NOT NULL
   );
 
 CREATE TABLE IF NOT EXISTS game
