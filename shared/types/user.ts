@@ -1,13 +1,5 @@
 import { UserRoles } from '../enums/userRoles';
 
-export interface UserDto {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  role: UserRoles;
-}
-
 export interface User {
   id: number;
   firstName: string;
@@ -17,4 +9,12 @@ export interface User {
   password: string;
   createdAt?: Date;
   updatedAt?: Date;
+}
+
+export interface UserDto {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: UserRoles;
 }

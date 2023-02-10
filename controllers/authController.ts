@@ -2,15 +2,11 @@ import { object, string } from 'yup';
 import {
   InvalidRequestError,
   InternalServerError,
+  NotFoundError,
 } from './../shared/exceptions/Exceptions';
-import {
-  createUser,
-  getUserByEmail,
-  getUserById,
-  userSchema,
-} from '../models/User';
+import { createUser, userSchema, UserQueries, getUser } from '../models/User';
 import { Request, Response, NextFunction } from 'express';
-import { generateToken } from '../services/token.service';
+import { generateJwtToken } from '../services/token.service';
 import bcrypt from 'bcrypt';
 
 /**
@@ -32,7 +28,7 @@ export async function register(
       throw new InvalidRequestError();
     }
 
-    if (await getUserByEmail(req.body.email)) {
+    if (await getUser(UserQueries.GET_BY_EMAIL, req.body.email)) {
       throw new InvalidRequestError('User already exists');
     }
 
@@ -42,7 +38,7 @@ export async function register(
       throw new InternalServerError('Could not create user');
     }
 
-    const user = await getUserById(userId);
+    const user = await getUser(UserQueries.GET_BY_ID, userId);
 
     if (!user) {
       throw new InternalServerError();
@@ -57,7 +53,7 @@ export async function register(
         email: user.email,
         role: user.role,
       },
-      token: generateToken(user.id),
+      token: generateJwtToken(user.id),
     });
   } catch (err) {
     next(err);
@@ -84,10 +80,10 @@ export async function login(req: Request, res: Response, next: NextFunction) {
       throw new InvalidRequestError();
     }
 
-    const user = await getUserByEmail(req.body.email);
+    const user = await getUser(UserQueries.GET_BY_EMAIL, req.body.email);
 
     if (!user) {
-      throw new InvalidRequestError('No user with this email found');
+      throw new NotFoundError('No user with this email found');
     }
 
     const match = await bcrypt.compare(req.body.password, user.password);
@@ -105,7 +101,7 @@ export async function login(req: Request, res: Response, next: NextFunction) {
         email: user.email,
         role: user.role,
       },
-      token: generateToken(user.id),
+      token: generateJwtToken(user.id),
     });
   } catch (err) {
     next(err);
