@@ -1,4 +1,4 @@
-INSERT INTO `countries` (`iso`, `name`) VALUES
+INSERT INTO `country` (`iso`, `name`) VALUES
 ('AF', 'Afghanistan'),
 ('AX', 'Aland Islands'),
 ('AL', 'Albania'),

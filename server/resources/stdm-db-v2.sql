@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS gameday
   CREATE TABLE IF NOT EXISTS league
   (
      id             INT auto_increment PRIMARY KEY,
-     name           VARCHAR(50) NOT NULL,
+     name           VARCHAR(50) NOT NULL
   );
 
   CREATE TABLE IF NOT EXISTS club
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS gameday
      secondaryColor VARCHAR(7) NOT NULL,
      stadium        VARCHAR(50) NOT NULL,
      address        VARCHAR(255) NOT NULL,
-     city           VARCHAR(50) NOT NULL,
+     city           VARCHAR(50) NOT NULL
   );
 
   CREATE TABLE IF NOT EXISTS team
@@ -51,8 +51,6 @@ CREATE TABLE IF NOT EXISTS gameday
      name           VARCHAR(50) NOT NULL,
      clubId         INT NOT NULL,
      leagueId       INT NOT NULL,
-     createdAt      TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-     updatedAt      TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
      FOREIGN KEY(clubId) REFERENCES club(id),
      FOREIGN KEY(leagueId) REFERENCES league(id)
   );
@@ -60,16 +58,17 @@ CREATE TABLE IF NOT EXISTS gameday
 CREATE TABLE IF NOT EXISTS player
   (
      id        INT auto_increment PRIMARY KEY,
+     name      VARCHAR(50) NOT NULL,
      teamId    INT NOT NULL,
      countryId INT NOT NULL,
-     positon   VARCHAR(50) NOT NULL,
+     positon   ENUM('ST', 'CM', 'CB', 'GW') NOT NULL,
      number    INT NOT NULL,
      height    INT NOT NULL,
      weight    INT NOT NULL,
      birthDate DATE NOT NULL,
      avatarUrl VARCHAR(255) NOT NULL,
-     FOREIGN KEY(teamId) REFERENCES teams(id),
-     FOREIGN KEY(countryId) REFERENCES countries(id)
+     FOREIGN KEY(teamId) REFERENCES team(id),
+     FOREIGN KEY(countryId) REFERENCES country(id)
   );
 
 CREATE TABLE IF NOT EXISTS game
@@ -80,9 +79,9 @@ CREATE TABLE IF NOT EXISTS game
      gamedayId    INT NOT NULL,
      date         DATE NOT NULL,
      reffereeName VARCHAR(50) NOT NULL,
-     FOREIGN KEY(hometeamId) REFERENCES teams(id),
-     FOREIGN KEY(awayteamId) REFERENCES teams(id),
-     FOREIGN KEY(gamedayId) REFERENCES gamedays(id)
+     FOREIGN KEY(hometeamId) REFERENCES team(id),
+     FOREIGN KEY(awayteamId) REFERENCES team(id),
+     FOREIGN KEY(gamedayId) REFERENCES gameday(id)
   );
 
   CREATE TABLE IF NOT EXISTS gameevent
@@ -92,6 +91,6 @@ CREATE TABLE IF NOT EXISTS game
      minute    INT NOT NULL,
      event     VARCHAR(50) NOT NULL,
      activePlayer INT NOT NULL,
-     passivePlayer INT NOT NULL,
-     FOREIGN KEY(gameId) REFERENCES games(id)
+     passivePlayer INT,
+     FOREIGN KEY(gameId) REFERENCES game(id)
   ); 
