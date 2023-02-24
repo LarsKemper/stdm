@@ -18,9 +18,9 @@ import { useForm } from '@mantine/form';
 import { validator } from '@util/validator.service';
 import StHead from '@components/StHead';
 import { RegisterForm } from '@stTypes/forms';
-import useAuthService from '../useAuthService';
+import useAuthService from '../services/useAuthService';
 import ClientOnly from '@components/ClientOnly';
-import WaitForAuth from '../WaitForAuth';
+import WaitForAuth from '../services/WaitForAuth';
 
 const useStyles = registerPageStyles;
 

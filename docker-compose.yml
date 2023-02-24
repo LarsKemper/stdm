@@ -4,6 +4,7 @@ services:
     image: mysql:5.7
     container_name: stdm-db
     restart: always
+    tty: true
     environment:
       MYSQL_DATABASE: 'stdm-db'
       MYSQL_USER: 'mysql'
@@ -18,6 +19,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
+    tty: true
     links:
       - stdm-db
     environment:

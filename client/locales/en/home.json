@@ -9,8 +9,10 @@
     "action-button": "Get started"
   },
   "header": {
-    "item-home-label": "Home",
-    "item-app-label": "App"
+    "item-tables-label": "Tables",
+    "item-leagues-label": "Leagues",
+    "item-teams-label": "Teams",
+    "item-players-label": "Players"
   },
   "footer": {
     "item-imprint-label": "Legal Notice"

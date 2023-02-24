@@ -15,6 +15,7 @@ module.exports = {
   pages: {
     '*': ['common'],
     '/': ['home'],
+    '/players': ['home'],
     '/auth/register': ['auth'],
     '/auth/login': ['auth'],
     '/auth/forgot-password': ['auth'],

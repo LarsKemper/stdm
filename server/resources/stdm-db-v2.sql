@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS game
      FOREIGN KEY(gamedayId) REFERENCES gameday(id)
   );
 
-CREATE TABLE IF NOT EXISTS gameevent
+CREATE TABLE IF NOT EXISTS gameEvent
   (
      id        INT auto_increment PRIMARY KEY,
      gameId    INT NOT NULL,
