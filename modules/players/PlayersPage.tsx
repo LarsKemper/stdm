@@ -1,26 +1,26 @@
 import React from 'react';
+import HomeLayout from '@modules/layout/HomeLayout';
 import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
-import HomeLayout from '@modules/layout/HomeLayout';
-import WaitForAuth from '@modules/auth/WaitForAuth';
+import StPageTitle from '@components/StPageTitle/StPageTitle';
+import { Container } from '@mantine/core';
 import ClientOnly from '@components/ClientOnly';
-import StPageTitle from '@components/StPageTitle';
+import WaitForAuth from '@modules/auth/services/WaitForAuth';
 
-function HomePage() {
+function PlayersPage() {
   const { t } = useTranslation(TranslationScopeEnum.HOME);
 
   return (
     <ClientOnly>
       <WaitForAuth>
         <HomeLayout title={t('general.page-title')}>
-          <StPageTitle
-            title="Lorem Ipsum"
-            description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam"
-          />
+          <Container>
+            <StPageTitle title={'title'} description={'desc'} />
+          </Container>
         </HomeLayout>
       </WaitForAuth>
     </ClientOnly>
   );
 }
 
-export default HomePage;
+export default PlayersPage;

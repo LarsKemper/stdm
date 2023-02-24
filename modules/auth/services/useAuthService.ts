@@ -1,8 +1,8 @@
-import { useUserStore } from 'stores/useUserStore';
+import { useUserStore } from '@store/useUserStore';
 import { useTokenStore } from '@store/useTokenStore';
-import { TranslationScopeEnum } from './../../enums/TranslationScopeEnum';
-import { RegisterForm, LoginForm } from './../../types/forms';
-import { notification } from './../../utils/notification.service';
+import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
+import { RegisterForm, LoginForm } from '@stTypes/forms';
+import { notification } from '@util/notification.service';
 import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';

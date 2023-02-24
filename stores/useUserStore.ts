@@ -12,7 +12,7 @@ const initial = {
   email: '',
 };
 
-const getDefaultValeus = (): User => {
+const getDefaultValues = (): User => {
   if (!isServer) {
     try {
       const user = localStorage.getItem(userKey);
@@ -27,7 +27,7 @@ const getDefaultValeus = (): User => {
 };
 
 export const useUserStore = create(
-  combine(getDefaultValeus(), (set) => ({
+  combine(getDefaultValues(), (set) => ({
     setUser: (x: User) => {
       try {
         localStorage.setItem(userKey, JSON.stringify(x));

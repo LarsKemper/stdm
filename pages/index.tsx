@@ -1,3 +1,3 @@
-import HomePage from '@modules/landing/HomePage/HomePage';
+import TablesPage from '@modules/landing/TablesPage/TablesPage';
 //
-export default HomePage;
+export default TablesPage;

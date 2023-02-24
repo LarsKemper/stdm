@@ -15,10 +15,24 @@ const HomeFooter = dynamic(() => import('@components/home/HomeFooter'));
 function HomeLayout(props: HomeLayoutProps) {
   const { t } = useTranslation(TranslationScopeEnum.HOME);
 
+  console.log(t('header.item-tables-label'));
+
   const links: { link: string; label: string }[] = [
     {
       link: '/',
-      label: t('header.item-home-label'),
+      label: t('header.item-tables-label'),
+    },
+    {
+      link: '/leagues',
+      label: t('header.item-leagues-label'),
+    },
+    {
+      link: '/teams',
+      label: t('header.item-teams-label'),
+    },
+    {
+      link: '/players',
+      label: t('header.item-players-label'),
     },
   ];
 

@@ -9,8 +9,10 @@
     "action-button": "Starte durch"
   },
   "header": {
-    "item-home-label": "Start",
-    "item-app-label": "App"
+    "item-tables-label": "Tabellen",
+    "item-leagues-label": "Ligen",
+    "item-teams-label": "Mannschaften",
+    "item-players-label": "Spieler"
   },
   "footer": {
     "item-imprint-label": "Impressum"

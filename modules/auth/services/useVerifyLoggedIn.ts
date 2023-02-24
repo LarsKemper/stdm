@@ -1,4 +1,4 @@
-import { useUserStore } from './../../stores/useUserStore';
+import { useUserStore } from '@store/useUserStore';
 import { useTokenStore } from '@store/useTokenStore';
 
 export const useVerifyLoggedIn = () => {

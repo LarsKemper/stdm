@@ -14,7 +14,7 @@ import StColorToggle from '@components/StColorToggle';
 import StLanguageSelect from '@components/StLanguageSelect/StLanguageSelect';
 import StLogo from '@components/StLogo';
 import { homeHeaderStyles, HEADER_HEIGHT } from './HomeHeader.styles';
-import useAuthService from '@modules/auth/useAuthService';
+import useAuthService from '@modules/auth/services/useAuthService';
 import { IconLogout } from '@tabler/icons';
 
 const useStyles = homeHeaderStyles;
