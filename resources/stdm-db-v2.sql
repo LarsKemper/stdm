@@ -1,3 +1,12 @@
+DROP TABLE IF EXISTS gameevent;
+DROP TABLE IF EXISTS game;
+DROP TABLE IF EXISTS player;
+DROP TABLE IF EXISTS team;
+DROP TABLE IF EXISTS club;
+DROP TABLE IF EXISTS league;
+DROP TABLE IF EXISTS gameday;
+DROP TABLE IF EXISTS country;
+
 CREATE TABLE IF NOT EXISTS user
   (
      id        INT auto_increment PRIMARY KEY,
@@ -26,13 +35,13 @@ CREATE TABLE IF NOT EXISTS gameday
      season VARCHAR(9) NOT NULL
   );
 
-  CREATE TABLE IF NOT EXISTS league
+CREATE TABLE IF NOT EXISTS league
   (
      id             INT auto_increment PRIMARY KEY,
      name           VARCHAR(50) NOT NULL
   );
 
-  CREATE TABLE IF NOT EXISTS club
+CREATE TABLE IF NOT EXISTS club
   (
      id             INT auto_increment PRIMARY KEY,
      name           VARCHAR(50) NOT NULL,
@@ -45,7 +54,7 @@ CREATE TABLE IF NOT EXISTS gameday
      city           VARCHAR(50) NOT NULL
   );
 
-  CREATE TABLE IF NOT EXISTS team
+CREATE TABLE IF NOT EXISTS team
   (
      id             INT auto_increment PRIMARY KEY,
      name           VARCHAR(50) NOT NULL,
@@ -84,7 +93,7 @@ CREATE TABLE IF NOT EXISTS game
      FOREIGN KEY(gamedayId) REFERENCES gameday(id)
   );
 
-  CREATE TABLE IF NOT EXISTS gameevent
+CREATE TABLE IF NOT EXISTS gameevent
   (
      id        INT auto_increment PRIMARY KEY,
      gameId    INT NOT NULL,
@@ -93,4 +102,4 @@ CREATE TABLE IF NOT EXISTS game
      activePlayer INT NOT NULL,
      passivePlayer INT,
      FOREIGN KEY(gameId) REFERENCES game(id)
-  ); 
+  );
