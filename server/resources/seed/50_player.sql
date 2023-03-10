@@ -200,7 +200,7 @@ INSERT INTO player (
         'https://thispersondoesnotexist.com/image'
     ),(
         'Manuel',
-        2,
+        3,
         1,
         'ST',
         12,

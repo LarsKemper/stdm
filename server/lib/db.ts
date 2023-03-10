@@ -1,6 +1,7 @@
 import { createConnection, Connection } from 'mysql2';
 import { dbHost, dbUser, dbPwd, dbName } from './contants';
 import fs from 'fs';
+import * as console from "console";
 
 export let conn: Connection;
 
@@ -21,9 +22,13 @@ export function intiDatabase(): void {
     process.argv.forEach(function (val) {
       if (val === '--demodata') {
         buildDatabase();
+        views();
+        triggers();
         demoData();
       } else if (val === '--build-db') {
         buildDatabase();
+        views();
+        triggers();
       }
     });
   } catch (error) {
@@ -73,7 +78,55 @@ function demoData() {
 
       conn.query(e, (err) => {
         if (err) {
-          throw new Error(`failed to initialize database: ${err}`);
+          console.log(e);
+          throw new Error(`failed to add demodata: ${err}`);
+        }
+      });
+    });
+  });
+}
+
+function triggers() {
+  const files = fs.readdirSync('./resources/triggers/');
+  files.forEach((filename) => {
+    const querry = fs
+        .readFileSync('./resources/triggers/' + filename)
+        .toString()
+        .replace(/[\n\r]/g, '')
+        .split(';');
+
+    querry.forEach((e) => {
+      if (!e || e.length < 1) {
+        return;
+      }
+
+      conn.query(e, (err) => {
+        if (err) {
+          console.log(e);
+          throw new Error(`failed to initialize triggers: ${err}`);
+        }
+      });
+    });
+  });
+}
+
+function views() {
+  const files = fs.readdirSync('./resources/views/');
+  files.forEach((filename) => {
+    const querry = fs
+        .readFileSync('./resources/views/' + filename)
+        .toString()
+        .replace(/[\n\r]/g, '')
+        .split(';');
+
+    querry.forEach((e) => {
+      if (!e || e.length < 1) {
+        return;
+      }
+
+      conn.query(e, (err) => {
+        if (err) {
+          throw new Error(`failed to initialize views: ${err}`);
         }
       });
     });
