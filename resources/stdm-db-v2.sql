@@ -1,4 +1,11 @@
-DROP TABLE IF EXISTS gameevent;
+DROP TRIGGER IF EXISTS tableHistoryTrigger;
+
+DROP VIEW IF EXISTS gameEventTeamView;
+DROP VIEW IF EXISTS gameView;
+DROP VIEW IF EXISTS leagueTable;
+DROP VIEW IF EXISTS gameGoalTeamView;
+
+DROP TABLE IF EXISTS gameEvent;
 DROP TABLE IF EXISTS game;
 DROP TABLE IF EXISTS player;
 DROP TABLE IF EXISTS team;
@@ -6,6 +13,7 @@ DROP TABLE IF EXISTS club;
 DROP TABLE IF EXISTS league;
 DROP TABLE IF EXISTS gameday;
 DROP TABLE IF EXISTS country;
+DROP TABLE IF EXISTS tableHistory;
 
 CREATE TABLE IF NOT EXISTS user
   (
@@ -103,3 +111,16 @@ CREATE TABLE IF NOT EXISTS gameEvent
      passivePlayer INT,
      FOREIGN KEY(gameId) REFERENCES game(id)
   );
+
+CREATE TABLE IF NOT EXISTS tableHistory
+(
+    id INT auto_increment PRIMARY KEY,
+    leagueId INT NOT NULL,
+    teamId INT NOT NULL,
+    goalsShot INT,
+    goalsGot INT,
+    points INT,
+    season VARCHAR(9),
+    changeVer INT NOT NULL,
+    changedat DATETIME DEFAULT CURRENT_TIMESTAMP()
+);
