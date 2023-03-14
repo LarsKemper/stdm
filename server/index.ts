@@ -9,6 +9,7 @@ import * as MySQLConnector from './lib/db';
 import { ApiRoutes, route } from './shared/enums/apiRoutes';
 import authRoutes from './routes/auth.routes';
 import './lib/db';
+import playerRoutes from './routes/player.routes';
 
 const app: Express = express();
 
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.use(route(ApiRoutes.AUTH), authRoutes);
+app.use(route(ApiRoutes.PLAYERS), playerRoutes);
 
 // Middleware
 app.use(errorResponder);

@@ -10,18 +10,18 @@ export type Country = {
   name: string;
   iso: string;
   flagUrl: string;
-}
+};
 
 export type Gameday = {
   id: string;
   number: number;
   season: string;
-}
+};
 
 export type League = {
   id: string;
   name: string;
-}
+};
 
 export type Club = {
   id: string;
@@ -33,14 +33,14 @@ export type Club = {
   stadium: string;
   address: string;
   city: string;
-}
+};
 
 export type Team = {
   id: string;
   name: string;
   clubId: string;
   leagueId: string;
-}
+};
 
 export type Player = {
   id: string;
@@ -53,16 +53,16 @@ export type Player = {
   avatarUrl: string;
   teamId: string;
   countryId: string;
-}
+};
 
 export type Game = {
   id: string;
   gamedayId: string;
-  reffereeName: string
+  reffereeName: string;
   date: Date;
   homeTeamId: string;
   awayTeamId: string;
-}
+};
 
 export type GameEvent = {
   id: string;
@@ -71,10 +71,10 @@ export type GameEvent = {
   activePlayerId: string;
   passivePlayerId: string;
   gameId: string;
-}
+};
 
 export type TableRow = {
   leagueId: string;
   teamName: string;
   clubName: string;
-}
+};

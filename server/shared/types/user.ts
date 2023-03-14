@@ -10,11 +10,3 @@ export interface User {
   createdAt?: Date;
   updatedAt?: Date;
 }
-
-export interface UserDto {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  role: UserRoles;
-}

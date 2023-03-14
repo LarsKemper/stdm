@@ -1,6 +1,6 @@
 import { createStyles } from '@mantine/core';
 
-export const stEmptyCardStyles = createStyles((theme) => ({
+export const stEmptyListStyles = createStyles((theme) => ({
   wrapper: {
     display: 'flex',
     alignItems: 'center',
@@ -18,14 +18,6 @@ export const stEmptyCardStyles = createStyles((theme) => ({
     },
   },
 
-  image: {
-    maxWidth: '40%',
-
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-      maxWidth: '100%',
-    },
-  },
-
   body: {
     paddingRight: theme.spacing.xl * 4,
 
@@ -39,27 +31,12 @@ export const stEmptyCardStyles = createStyles((theme) => ({
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     lineHeight: 1,
+    fontSize: 28,
     marginBottom: theme.spacing.md,
   },
 
   controls: {
     display: 'flex',
     marginTop: theme.spacing.xl,
-  },
-
-  inputWrapper: {
-    width: '100%',
-    flex: '1',
-  },
-
-  input: {
-    borderTopRightRadius: 0,
-    borderBottomRightRadius: 0,
-    borderRight: 0,
-  },
-
-  control: {
-    borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 0,
   },
 }));

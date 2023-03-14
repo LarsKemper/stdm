@@ -3,11 +3,11 @@ import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
 import HomeLayout from '@modules/layout/HomeLayout';
 import WaitForAuth from '@modules/auth/services/WaitForAuth';
-import ClientOnly from '@components/ClientOnly';
-import StPageTitle from '@components/StPageTitle/StPageTitle';
+import ClientOnly from '@components/shared/ClientOnly';
+import StPageTitle from '@components/shared/StPageTitle/StPageTitle';
 import { Container, Select } from '@mantine/core';
-import LeagueTable from "@components/home/LeagueTable";
-import useLeagueService from "@modules/landing/services/useLeagueService";
+import LeagueTable from '@components/home/LeagueTable';
+import useLeagueService from '@modules/landing/services/useLeagueService';
 
 function TablesPage() {
   const { t } = useTranslation(TranslationScopeEnum.HOME);

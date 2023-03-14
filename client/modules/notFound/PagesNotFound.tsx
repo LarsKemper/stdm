@@ -1,7 +1,7 @@
 import { Container, Title, Text, Button, Group } from '@mantine/core';
 import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
-import StHead from '@components/StHead';
+import StHead from '@components/shared/StHead';
 import { notFoundPageStyles } from './PageNotFound.styles';
 import { NotFoundIcon } from '@icons';
 import { useRouter } from 'next/router';
