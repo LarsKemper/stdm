@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect } from 'react';
 import { useVerifyLoggedIn } from './useVerifyLoggedIn';
 import { useRouter } from 'next/router';
-import StFullScreenLoader from '@components/StFullScreenLoader';
+import StFullScreenLoader from '@components/shared/StFullScreenLoader';
 
 interface WaitForAuthProps {
   children: ReactNode;

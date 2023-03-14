@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Table } from '@mantine/core';
-import StDataTableSkeleton from '@components/StDataTable/StDataTableSkeleton';
+import StDataTableSkeleton from '@components/shared/StDataTable/StDataTableSkeleton';
 
 export type DataTableItem = {};
 

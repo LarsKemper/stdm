@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Text } from '@mantine/core';
-import { stPageTitleStyles } from '@components/StPageTitle/StPageTitle.styles';
+import { stPageTitleStyles } from '@components/shared/StPageTitle/StPageTitle.styles';
 
 const useStyles = stPageTitleStyles;
 

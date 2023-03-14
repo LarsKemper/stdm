@@ -14,12 +14,12 @@ import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
 import { loginPageStyles } from './LoginPage.styles';
-import StHead from '@components/StHead';
+import StHead from '@components/shared/StHead';
 import useAuthService from '../services/useAuthService';
 import { useForm } from '@mantine/form';
 import { LoginForm } from '@stTypes/forms';
 import { validator } from '@util/validator.service';
-import ClientOnly from '@components/ClientOnly';
+import ClientOnly from '@components/shared/ClientOnly';
 import WaitForAuth from '../services/WaitForAuth';
 
 const useStyles = loginPageStyles;

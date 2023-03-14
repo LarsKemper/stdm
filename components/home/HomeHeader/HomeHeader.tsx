@@ -10,12 +10,13 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
-import StColorToggle from '@components/StColorToggle';
-import StLanguageSelect from '@components/StLanguageSelect/StLanguageSelect';
-import StLogo from '@components/StLogo';
+import StColorToggle from '@components/shared/StColorToggle';
+import StLanguageSelect from '@components/shared/StLanguageSelect/StLanguageSelect';
+import StLogo from '@components/shared/StLogo';
 import { homeHeaderStyles, HEADER_HEIGHT } from './HomeHeader.styles';
 import useAuthService from '@modules/auth/services/useAuthService';
 import { IconLogout } from '@tabler/icons';
+import { useRouter } from 'next/router';
 
 const useStyles = homeHeaderStyles;
 
@@ -26,7 +27,8 @@ export interface HeaderProps {
 
 function HomeHeader({ links }: HeaderProps) {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const router = useRouter();
+  const [active, setActive] = useState(router.route || links[0].link);
   const { classes, cx } = useStyles();
   const { logout } = useAuthService();
 

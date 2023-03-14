@@ -1,7 +1,7 @@
 import { createStyles, Container, Group, Anchor } from '@mantine/core';
 import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
-import StLogo from '@components/StLogo';
+import StLogo from '@components/shared/StLogo';
 
 const useStyles = createStyles((theme) => ({
   footer: {

@@ -1,16 +1,16 @@
-import {useState} from "react";
+import { useState } from 'react';
 
 function useLeagueService() {
-    const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
-    async function getLeagues() {
-        return;
-    }
+  async function getLeagues() {
+    return;
+  }
 
-    return {
-        loading,
-        getLeagues,
-    }
+  return {
+    loading,
+    getLeagues,
+  };
 }
 
 export default useLeagueService;

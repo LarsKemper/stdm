@@ -1,5 +1,5 @@
 import { createStyles } from '@mantine/core';
-import { StLanguageSelectProps } from '@components/StLanguageSelect/StLanguageSelect';
+import { StLanguageSelectProps } from '@components/shared/StLanguageSelect/StLanguageSelect';
 
 export const stLanguageSelectStyles = createStyles(
   (

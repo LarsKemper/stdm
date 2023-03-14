@@ -16,10 +16,10 @@ import { registerPageStyles } from './RegisterPage.styles';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
 import { useForm } from '@mantine/form';
 import { validator } from '@util/validator.service';
-import StHead from '@components/StHead';
+import StHead from '@components/shared/StHead';
 import { RegisterForm } from '@stTypes/forms';
 import useAuthService from '../services/useAuthService';
-import ClientOnly from '@components/ClientOnly';
+import ClientOnly from '@components/shared/ClientOnly';
 import WaitForAuth from '../services/WaitForAuth';
 
 const useStyles = registerPageStyles;

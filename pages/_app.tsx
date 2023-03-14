@@ -7,7 +7,7 @@ import {
 } from '@mantine/core';
 import { useHotkeys, useLocalStorage } from '@mantine/hooks';
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
-import BfNavProgress from '@components/StNavProgress';
+import BfNavProgress from '@components/shared/StNavProgress';
 import { stTheme } from 'styles/theme';
 import { NotificationsProvider } from '@mantine/notifications';
 
