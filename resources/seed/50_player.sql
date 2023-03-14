@@ -17,7 +17,7 @@ INSERT INTO player (
         175,
         120,
         '1985-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         2,
@@ -27,7 +27,7 @@ INSERT INTO player (
         190,
         95,
         '1985-07-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -37,7 +37,7 @@ INSERT INTO player (
         175,
         80,
         '1985-09-12',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -47,7 +47,7 @@ INSERT INTO player (
         175,
         80,
         '1985-09-04',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -57,7 +57,7 @@ INSERT INTO player (
         175,
         80,
         '1985-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -67,7 +67,7 @@ INSERT INTO player (
         175,
         80,
         '1955-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -77,7 +77,7 @@ INSERT INTO player (
         190,
         80,
         '1999-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -87,7 +87,7 @@ INSERT INTO player (
         175,
         80,
         '1985-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -97,7 +97,7 @@ INSERT INTO player (
         190,
         80,
         '1985-10-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -107,7 +107,7 @@ INSERT INTO player (
         175,
         120,
         '1985-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -117,7 +117,7 @@ INSERT INTO player (
         175,
         80,
         '1985-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -127,7 +127,7 @@ INSERT INTO player (
         164,
         95,
         '1985-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -137,7 +137,7 @@ INSERT INTO player (
         175,
         80,
         '1985-11-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -147,7 +147,7 @@ INSERT INTO player (
         175,
         95,
         '1985-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -157,7 +157,7 @@ INSERT INTO player (
         175,
         120,
         '1985-09-23',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         1,
@@ -167,7 +167,7 @@ INSERT INTO player (
         164,
         120,
         '1985-09-24',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel Dunkel',
         1,
@@ -177,7 +177,7 @@ INSERT INTO player (
         164,
         95,
         '1965-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         2,
@@ -187,7 +187,7 @@ INSERT INTO player (
         175,
         80,
         '1984-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         2,
@@ -197,7 +197,7 @@ INSERT INTO player (
         175,
         80,
         '1985-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         3,
@@ -207,7 +207,7 @@ INSERT INTO player (
         175,
         80,
         '1985-11-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         2,
@@ -217,7 +217,7 @@ INSERT INTO player (
         175,
         80,
         '1985-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     ),(
         'Manuel',
         2,
@@ -227,5 +227,5 @@ INSERT INTO player (
         175,
         80,
         '1985-09-14',
-        'https://thispersondoesnotexist.com/image'
+        'https://i.pravatar.cc/300'
     );

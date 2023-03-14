@@ -1,7 +1,7 @@
 import { createConnection, Connection } from 'mysql2';
 import { dbHost, dbUser, dbPwd, dbName } from './contants';
 import fs from 'fs';
-import * as console from "console";
+import * as console from 'console';
 
 export let conn: Connection;
 
@@ -90,10 +90,10 @@ function triggers() {
   const files = fs.readdirSync('./resources/triggers/');
   files.forEach((filename) => {
     const querry = fs
-        .readFileSync('./resources/triggers/' + filename)
-        .toString()
-        .replace(/[\n\r]/g, '')
-        .split(';');
+      .readFileSync('./resources/triggers/' + filename)
+      .toString()
+      .replace(/[\n\r]/g, '')
+      .split(';');
 
     querry.forEach((e) => {
       if (!e || e.length < 1) {
@@ -114,10 +114,10 @@ function views() {
   const files = fs.readdirSync('./resources/views/');
   files.forEach((filename) => {
     const querry = fs
-        .readFileSync('./resources/views/' + filename)
-        .toString()
-        .replace(/[\n\r]/g, '')
-        .split(';');
+      .readFileSync('./resources/views/' + filename)
+      .toString()
+      .replace(/[\n\r]/g, '')
+      .split(';');
 
     querry.forEach((e) => {
       if (!e || e.length < 1) {
