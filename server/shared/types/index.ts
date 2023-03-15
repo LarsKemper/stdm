@@ -1,8 +1,12 @@
 export type User = {
-  id: string;
+  id: number;
   firstName: string;
   lastName: string;
   email: string;
+  role: string;
+  password: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 };
 
 export type Country = {
@@ -40,7 +44,6 @@ export type Team = {
   name: string;
   clubId: string;
   leagueId: string;
-  club?: Club;
 };
 
 export type Player = {

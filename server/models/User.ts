@@ -1,4 +1,4 @@
-import { User } from '../shared/types/user';
+import { User } from '../shared/types';
 import { OkPacket, RowDataPacket } from 'mysql2';
 import { conn } from '../lib/db';
 import { AnySchema, object, string } from 'yup';

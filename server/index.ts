@@ -10,6 +10,7 @@ import { ApiRoutes, route } from './shared/enums/apiRoutes';
 import authRoutes from './routes/auth.routes';
 import './lib/db';
 import playerRoutes from './routes/player.routes';
+import teamRoutes from './routes/team.routes';
 
 const app: Express = express();
 
@@ -26,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Routes
 app.use(route(ApiRoutes.AUTH), authRoutes);
 app.use(route(ApiRoutes.PLAYERS), playerRoutes);
+app.use(route(ApiRoutes.TEAMS), teamRoutes);
 
 // Middleware
 app.use(errorResponder);

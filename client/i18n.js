@@ -16,6 +16,7 @@ module.exports = {
     '*': ['common'],
     '/': ['home'],
     '/players': ['home'],
+    '/teams': ['home'],
     '/auth/register': ['auth'],
     '/auth/login': ['auth'],
     '/auth/forgot-password': ['auth'],

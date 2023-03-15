@@ -4,10 +4,12 @@ import { Player } from '@stTypes/index';
 
 interface PlayerStoreState {
   players: Array<Player>;
+  names: string[];
 }
 
 const initial: PlayerStoreState = {
   players: [],
+  names: [],
 };
 
 export const usePlayerStore = create(

@@ -1,23 +1,21 @@
-import { Player } from '../shared/types';
 import { conn } from '../lib/db';
+import { Team } from '../shared/types';
 
-// player schema here if needed
-
-export enum PlayerQueries {
-  GET_ALL = 'SELECT * FROM player',
+export enum TeamQueries {
+  GET_ALL = "SELECT team.id, team.name, team.clubId, (SELECT JSON_OBJECT('name', c.name, 'stadium', c.stadium, 'logoUrl', c.logoUrl) FROM club c WHERE c.id = team.clubId) AS club FROM team",
 }
 
 /**
- * Gets players
+ * Gets teams
  *
  * @param {string} sql SQL query
  * @param {Array | string | number} params Query parameters
  * @returns {Promise<Player[]>} Promise which resolves to the result of the query
  */
-export async function getPlayers(
+export async function getTeams(
   sql: string,
   params?: Array<string | number> | string | number
-): Promise<Player[] | undefined> {
+): Promise<Team[] | undefined> {
   return new Promise((resolve, reject) => {
     conn.query(sql, params, (err, result) => {
       if (err) {
@@ -28,7 +26,7 @@ export async function getPlayers(
         return resolve(undefined);
       }
 
-      resolve(result as Player[]);
+      resolve(result as Team[]);
     });
   });
 }
