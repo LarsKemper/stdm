@@ -1,14 +1,44 @@
 {
-  "general": {
-    "page-title": "Start",
-    "headline--highlight-1": "Lorem Impsum",
-    "headline--no-highlight-1": "dolor sit amet",
-    "headline--highlight-2": "consetetur",
-    "headline--no-highlight-2": "sadipscing elitr",
-    "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam",
-    "action-button": "Starte durch"
+  "tables": {
+    "page-title": "Tabellen",
+    "title": "Tabellen",
+    "description": "Wählen Sie eine Liga und sehen Sie sich die Ergebnisse der aktuellen Saison an.",
+    "table": {
+      "position": "Position",
+      "team": "Team",
+      "club": "Club",
+      "season": "Saison",
+      "goals-shot": "Erzielte Tore",
+      "goals-got": "Erhaltene Tore",
+      "points": "Punkte"
+    },
+    "empty": {
+      "title": "Es wurden keine Ergebnisse gefunden...",
+      "sub-title": "Für diese Liga sind derzeit weder Ergebnisse noch Tabellen verfügbar."
+    }
+  },
+  "team-list": {
+    "page-title": "Mannschaften",
+    "title": "Mannschaften",
+    "description": "Alle verfügbaren Mannschaften.",
+    "empty": {
+      "title": "Es wurden keine Ergebnisse gefunden...",
+      "sub-title": "Zurzeit liegen noch keine Ergebnisse vor."
+    }
+  },
+  "players-list": {
+    "page-title": "Spieler",
+    "title": "Spieler",
+    "description": "Alle verfügbaren Spieler.",
+    "empty": {
+      "title": "Es wurden keine Ergebnisse gefunden...",
+      "sub-title": "Zurzeit liegen noch keine Ergebnisse vor."
+    }
   },
   "footer": {
     "item-imprint-label": "Impressum"
+  },
+  "search": {
+    "no-result": "Kein Ergebnis für deine Eingabe."
   }
 }

@@ -32,11 +32,11 @@ function TablesPage() {
   return (
     <ClientOnly>
       <WaitForAuth>
-        <HomeLayout title={t('general.page-title')}>
+        <HomeLayout title={t('tables.page-title')}>
           <Container>
             <StPageTitle
-              title="Tables"
-              description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam"
+              title={t('tables.title')}
+              description={t('tables.description')}
             />
             <Flex gap="sm" align="center" mt="xl" mb="xl">
               <Select

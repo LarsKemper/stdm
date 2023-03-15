@@ -17,12 +17,13 @@ import { useTeamStore } from '@modules/teams/stores/useTeamStore';
 import useTeamsService from '@modules/teams/services/useTeamsService';
 import StCardSkeleton from '@components/shared/StCard/StCardSkeleton';
 import StCard from '@components/shared/StCard/StCard';
+import StSearch from '@components/shared/StSearch';
 
 const useStyles = teamListPageStyles;
 
 function TeamListPage() {
   const teamStore = useTeamStore();
-  const { t } = useTranslation(TranslationScopeEnum.COMMON);
+  const { t } = useTranslation(TranslationScopeEnum.HOME);
   const { classes } = useStyles();
   const { loading, getTeams } = useTeamsService();
   const { mounted } = useContext(MountedContext);
@@ -48,22 +49,13 @@ function TeamListPage() {
   return (
     <ClientOnly>
       <WaitForAuth>
-        <HomeLayout title={t('general.page-title')}>
+        <HomeLayout title={t('team-list.page-title')}>
           <Container>
             <StPageTitle
-              title={'Teams'}
-              description={
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n'
-              }
+              title={t('team-list.title')}
+              description={t('team-list.description')}
             />
-            <Autocomplete
-              onChange={setTerm}
-              mt="xl"
-              className={classes.search}
-              placeholder="Search"
-              icon={<IconSearch size="1rem" stroke={1.5} />}
-              data={teamStore.names}
-            />
+            <StSearch onChange={setTerm} data={teamStore.names} />
           </Container>
           <Container mt={40} mb={40} className={classes.inner}>
             <StListLoader
@@ -76,9 +68,8 @@ function TeamListPage() {
               }
               emptyCard={
                 <StEmptyList
-                  title={t('empty-sketch-list.title')}
-                  subTitle={t('empty-sketch-list.sub-title')}
-                  description={t('empty-sketch-list.description')}
+                  title={t('team-list.empty.title')}
+                  subTitle={t('team-list.empty.sub-title')}
                 />
               }
             >
@@ -99,7 +90,7 @@ function TeamListPage() {
                     );
                   })
                 ) : (
-                  <Text ml="xs">No result for your input</Text>
+                  <Text ml="xs">{t('search.no-result')}</Text>
                 )}
               </Grid>
             </StListLoader>

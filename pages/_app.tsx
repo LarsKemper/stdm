@@ -17,7 +17,7 @@ export default function App(props: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
 
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: 'mantine-color-scheme',
+    key: '@st/color-schema',
     defaultValue: 'dark',
     getInitialValueInEffect: true,
   });

@@ -9,7 +9,7 @@ import { Player } from '@stTypes/index';
 
 function usePlayersService() {
   const [loading, setLoading] = useState<boolean>(false);
-  const { t } = useTranslation(TranslationScopeEnum.PLAYERS);
+  const { t } = useTranslation(TranslationScopeEnum.HOME);
   const playerStore = usePlayerStore();
 
   async function getPlayers() {

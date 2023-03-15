@@ -14,10 +14,4 @@ export const playersPageStyles = createStyles((theme) => ({
   skeleton: {
     width: '100%',
   },
-
-  search: {
-    [theme.fn.smallerThan('xs')]: {
-      display: 'none',
-    },
-  },
 }));

@@ -1,14 +1,44 @@
 {
-  "general": {
-    "page-title": "Home",
-    "headline--highlight-1": "Lorem Impsum",
-    "headline--no-highlight-1": "dolor sit amet",
-    "headline--highlight-2": "consetetur",
-    "headline--no-highlight-2": "sadipscing elitr",
-    "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam",
-    "action-button": "Get started"
+  "tables": {
+    "page-title": "Tables",
+    "title": "Tables",
+    "description": "Choose a league and see the results of the current season.",
+    "table": {
+      "position": "Position",
+      "team": "Team",
+      "club": "Club",
+      "season": "Season",
+      "goals-shot": "Goals scored",
+      "goals-got": "Goals received",
+      "points": "Points"
+    },
+    "empty": {
+      "title": "No results were found...",
+      "sub-title": "At the moment no result or table is available for this league."
+    }
+  },
+  "team-list": {
+    "page-title": "Teams",
+    "title": "Teams",
+    "description": "All available teams.",
+    "empty": {
+      "title": "No results were found...",
+      "sub-title": "At the moment no results are available."
+    }
+  },
+  "players-list": {
+    "page-title": "Players",
+    "title": "Players",
+    "description": "All available players.",
+    "empty": {
+      "title": "No results were found...",
+      "sub-title": "At the moment no results are available."
+    }
   },
   "footer": {
     "item-imprint-label": "Legal Notice"
+  },
+  "search": {
+    "no-result": "No result for your input."
   }
 }

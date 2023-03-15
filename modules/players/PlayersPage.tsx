@@ -17,6 +17,7 @@ import { Player } from '@stTypes/index';
 import { useDebouncedState } from '@mantine/hooks';
 import StCard from '@components/shared/StCard/StCard';
 import StCardSkeleton from '@components/shared/StCard/StCardSkeleton';
+import StSearch from '@components/shared/StSearch';
 
 const useStyles = playersPageStyles;
 
@@ -44,22 +45,13 @@ function PlayersPage() {
   return (
     <ClientOnly>
       <WaitForAuth>
-        <HomeLayout title={t('general.page-title')}>
+        <HomeLayout title={t('players-list.page-title')}>
           <Container>
             <StPageTitle
-              title={'Players'}
-              description={
-                'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n'
-              }
+              title={t('players-list.title')}
+              description={t('players-list.description')}
             />
-            <Autocomplete
-              onChange={setTerm}
-              mt="xl"
-              className={classes.search}
-              placeholder="Search"
-              icon={<IconSearch size="1rem" stroke={1.5} />}
-              data={playerStore.names}
-            />
+            <StSearch onChange={setTerm} data={playerStore.names} />
           </Container>
           <Container mt={40} mb={40} className={classes.inner}>
             <StListLoader
@@ -72,9 +64,8 @@ function PlayersPage() {
               }
               emptyCard={
                 <StEmptyList
-                  title={t('empty-sketch-list.title')}
-                  subTitle={t('empty-sketch-list.sub-title')}
-                  description={t('empty-sketch-list.description')}
+                  title={t('players-list.empty.title')}
+                  subTitle={t('players-list.empty.sub-title')}
                 />
               }
             >
@@ -86,14 +77,14 @@ function PlayersPage() {
                         key={player.id}
                         id={player.id}
                         image={player.avatarUrl}
-                        topLine={player.number}
+                        topLine={`${player.number} - ${player.position}`}
                         title={player.name}
                         date={player.birthDate}
                       />
                     );
                   })
                 ) : (
-                  <Text ml="xs">No result for your input</Text>
+                  <Text ml="xs">{t('search.no-result')}</Text>
                 )}
               </Grid>
             </StListLoader>
