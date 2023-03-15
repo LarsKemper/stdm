@@ -1,24 +1,35 @@
 import React, { ReactNode } from 'react';
 import { Table } from '@mantine/core';
 import StDataTableSkeleton from '@components/shared/StDataTable/StDataTableSkeleton';
-
-export type DataTableItem = {};
+import StEmptyList from '@components/shared/StEmptyList/StEmptyList';
 
 interface StDataTableProps {
-  head: ReactNode;
-  body: ReactNode | null;
+  columns: ReactNode;
+  rows: ReactNode | null;
+  rowLength: number;
   loading: boolean;
 }
 
 function StDataTable(props: StDataTableProps) {
-  if (props.loading || !props.body) {
+  if (props.loading) {
     return <StDataTableSkeleton />;
+  }
+
+  if (props.rowLength <= 0 || !props.rows) {
+    return (
+      <StEmptyList
+        title={'No results were found...'}
+        subTitle={
+          'At the moment no result or table is available for this league'
+        }
+      />
+    );
   }
 
   return (
     <Table horizontalSpacing="md" verticalSpacing="md" fontSize="md">
-      <thead>{props.head}</thead>
-      <body>{props.body}</body>
+      <thead style={{ width: '100%' }}>{props.columns}</thead>
+      <tbody style={{ width: '100%' }}>{props.rows}</tbody>
     </Table>
   );
 }
