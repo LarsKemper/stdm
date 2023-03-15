@@ -1,5 +1,7 @@
 import React from 'react';
 import StDataTable from '@components/shared/StDataTable/StDataTable';
+import useTranslation from 'next-translate/useTranslation';
+import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
 
 interface LeagueTableProps {
   leagueLoading: boolean;
@@ -19,6 +21,8 @@ export type LeagueTablePosition = {
 };
 
 function LeagueTable(props: LeagueTableProps) {
+  const { t } = useTranslation(TranslationScopeEnum.HOME);
+
   const rows = props.positions.map((position, index) => (
     <tr key={position.clubName}>
       <td>{index}</td>
@@ -35,13 +39,13 @@ function LeagueTable(props: LeagueTableProps) {
     <StDataTable
       columns={
         <tr>
-          <th>Position</th>
-          <th>Team</th>
-          <th>Club</th>
-          <th>Season</th>
-          <th>Goals shot</th>
-          <th>Goals got</th>
-          <th>Points</th>
+          <th>{t('tables.table.position')}</th>
+          <th>{t('tables.table.team')}</th>
+          <th>{t('tables.table.club')}</th>
+          <th>{t('tables.table.season')}</th>
+          <th>{t('tables.table.goals-shot')}</th>
+          <th>{t('tables.table.goals-got')}</th>
+          <th>{t('tables.table.points')}</th>
         </tr>
       }
       rows={rows}

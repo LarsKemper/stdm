@@ -10,5 +10,16 @@
     "item-leagues-label": "Leagues",
     "item-teams-label": "Teams",
     "item-players-label": "Players"
+  },
+  "team-details": {
+    "page-title": "Team",
+    "empty": {
+      "title": "No results were found...",
+      "sub-title": "At the moment no results are available."
+    }
+  },
+  "search": {
+    "placeholder": "Search...",
+    "no-result": "No result for your input."
   }
 }

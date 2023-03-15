@@ -10,5 +10,16 @@
     "item-leagues-label": "Ligen",
     "item-teams-label": "Mannschaften",
     "item-players-label": "Spieler"
+  },
+  "team-details": {
+    "page-title": "Mannschaft",
+    "empty": {
+      "title": "Es wurden keine Ergebnisse gefunden...",
+      "sub-title": "Zurzeit liegen noch keine Ergebnisse vor."
+    }
+  },
+  "search": {
+    "placeholder": "Suchen...",
+    "no-result": "Kein Ergebnis für deine Eingabe."
   }
 }

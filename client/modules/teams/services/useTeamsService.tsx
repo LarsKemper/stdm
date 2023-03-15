@@ -9,7 +9,7 @@ import { Team } from '@stTypes/index';
 
 function useTeamsService() {
   const [loading, setLoading] = useState<boolean>(false);
-  const { t } = useTranslation(TranslationScopeEnum.PLAYERS);
+  const { t } = useTranslation(TranslationScopeEnum.HOME);
   const teamStore = useTeamStore();
 
   async function getTeams(id?: string) {

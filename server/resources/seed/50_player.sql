@@ -2,7 +2,7 @@ INSERT INTO player (
     name,
     teamId,
     countryId,
-    positon,
+    position,
     number,
     height,
     weight,

@@ -12,10 +12,10 @@ export const userSchema = object<Record<keyof User, AnySchema>>().shape({
 });
 
 export enum UserQueries {
-  CREATE = 'INSERT INTO account (id, firstName, lastName, email, password) VALUES (?, ?, ?, ?, ?)',
-  UPDATE = 'UPDATE account SET firstName = ?, lastName = ?, password = ?, role = ? WHERE id = ?',
-  GET_BY_ID = 'SELECT * FROM account WHERE id = ?',
-  GET_BY_EMAIL = 'SELECT * FROM account WHERE email = ?',
+  CREATE = 'INSERT INTO user (id, firstName, lastName, email, password) VALUES (?, ?, ?, ?, ?)',
+  UPDATE = 'UPDATE user SET firstName = ?, lastName = ?, password = ?, role = ? WHERE id = ?',
+  GET_BY_ID = 'SELECT * FROM user WHERE id = ?',
+  GET_BY_EMAIL = 'SELECT * FROM user WHERE email = ?',
 }
 
 /**

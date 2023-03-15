@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { teamDetailsPageStyles } from '@modules/teams/TeamDetailsPage/TeamDetailsPage.styles';
 import ClientOnly, { MountedContext } from '@components/shared/ClientOnly';
 import WaitForAuth from '@modules/auth/services/WaitForAuth';
@@ -13,38 +13,43 @@ import GameCardSkeleton from '@components/GameCard/GameCardSkeleton';
 import StListLoader from '@components/shared/StListLoader';
 import StSkeletonList from '@components/shared/StSkeletonList';
 import GameCard from '@components/GameCard/GameCard';
+import StEmptyList from '@components/shared/StEmptyList/StEmptyList';
 
 const useStyles = teamDetailsPageStyles;
 
 function TeamDetailsPage() {
+  const [teamLoading, setTeamLoading] = useState<boolean>(true);
+  const [gamesLoading, setGamesLoading] = useState<boolean>(true);
   const { classes } = useStyles();
   const { t } = useTranslation(TranslationScopeEnum.HOME);
   const teamStore = useTeamStore();
-  const { getGames, getTeams, loading } = useTeamsService();
+  const { getGames, getTeams } = useTeamsService();
   const { mounted } = useContext(MountedContext);
   const router = useRouter();
+
+  const loading = teamLoading || gamesLoading;
 
   useEffect(() => {
     if (!router.query.teamId) {
       return router.back();
     }
 
-    getTeams(router.query.teamId as string).catch();
-    getGames(router.query.teamId as string).catch();
+    getTeams(router.query.teamId as string).then(() => setTeamLoading(false));
+    getGames(router.query.teamId as string).then(() => setGamesLoading(false));
   }, [mounted, router]);
 
   return (
     <ClientOnly>
       <WaitForAuth>
-        <HomeLayout title={t('general.page-title')}>
+        <HomeLayout title={t('team-details.page-title')}>
           <Container>
             <Group mb="xl">
               {!loading && teamStore.team && teamStore.team.club ? (
                 <>
                   <Avatar
                     src={teamStore.team.club.logoUrl}
+                    alt={teamStore.team.club.name}
                     size="xl"
-                    alt={'author.name'}
                     radius="xl"
                   />
                   <div>
@@ -78,7 +83,12 @@ function TeamDetailsPage() {
                   />
                 </Grid>
               }
-              emptyCard={<div>empty</div>}
+              emptyCard={
+                <StEmptyList
+                  title={t('team-details.empty.title')}
+                  subTitle={t('team-details.empty.sub-title')}
+                />
+              }
             >
               <Grid gutter="lg">
                 {teamStore.games.length > 0 &&
