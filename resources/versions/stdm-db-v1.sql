@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS players
      userId    INT NOT NULL,
      teamId    INT NOT NULL,
      countryId INT NOT NULL,
-     positon   VARCHAR(50) NOT NULL,
+     position   VARCHAR(50) NOT NULL,
      number    INT NOT NULL,
      height    INT NOT NULL,
      weight    INT NOT NULL,

@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS user
      updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP()
   );
 
-    CREATE TABLE IF NOT EXISTS country
+CREATE TABLE IF NOT EXISTS country
   (
      id      INT auto_increment PRIMARY KEY,
      name    VARCHAR(50) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS player
      name      VARCHAR(50) NOT NULL,
      teamId    INT NOT NULL,
      countryId INT NOT NULL,
-     positon   ENUM('ST', 'CM', 'CB', 'GW') NOT NULL,
+     position   ENUM('ST', 'CM', 'CB', 'GW') NOT NULL,
      number    INT NOT NULL,
      height    INT NOT NULL,
      weight    INT NOT NULL,
