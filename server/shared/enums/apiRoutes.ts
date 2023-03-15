@@ -4,6 +4,8 @@ export enum ApiRoutes {
   AUTH = '/auth',
   PLAYERS = '/players',
   TEAMS = '/teams',
+  LEAGUE = '/leagues',
+  VIEWS = '/views',
 }
 
 /**

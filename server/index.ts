@@ -8,9 +8,11 @@ import { port } from './lib/contants';
 import * as MySQLConnector from './lib/db';
 import { ApiRoutes, route } from './shared/enums/apiRoutes';
 import authRoutes from './routes/auth.routes';
-import './lib/db';
 import playerRoutes from './routes/player.routes';
 import teamRoutes from './routes/team.routes';
+import leagueRoutes from "./routes/league.routes";
+import viewRoutes from "./routes/view.routes";
+import './lib/db';
 
 const app: Express = express();
 
@@ -28,6 +30,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(route(ApiRoutes.AUTH), authRoutes);
 app.use(route(ApiRoutes.PLAYERS), playerRoutes);
 app.use(route(ApiRoutes.TEAMS), teamRoutes);
+app.use(route(ApiRoutes.LEAGUE), leagueRoutes);
+app.use(route(ApiRoutes.VIEWS), viewRoutes);
 
 // Middleware
 app.use(errorResponder);

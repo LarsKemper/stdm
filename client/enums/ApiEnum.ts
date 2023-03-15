@@ -7,6 +7,8 @@ export enum API {
   LOGIN = 'auth/login',
   PLAYERS = 'players',
   TEAMS = 'teams',
+  LEAGUES = 'leagues',
+  VIEWS = 'views',
 }
 
 export const routes = {
@@ -14,4 +16,6 @@ export const routes = {
   login: (): string => `${apiBase}/${API.LOGIN}`,
   players: (): string => `${apiBase}/${API.PLAYERS}`,
   teams: (): string => `${apiBase}/${API.TEAMS}`,
+  leagues: (): string => `${apiBase}/${API.LEAGUES}`,
+  views: (extension: string): string => `${apiBase}/${API.VIEWS}/${extension}`,
 };

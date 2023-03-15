@@ -6,7 +6,7 @@ const useStyles = stEmptyListStyles;
 interface StEmptyListProps {
   title: string;
   subTitle: string;
-  description: string;
+  description?: string;
   buttonLabel?: string;
   action?: () => void;
 }
@@ -23,13 +23,21 @@ function StEmptyList(props: StEmptyListProps) {
           data-testid="ci-empty-list-subTitle"
           weight={500}
           size="md"
-          mb={5}
+          {...((props.description || (props.action && props.buttonLabel)) && {
+            mb: 5,
+          })}
         >
           {props.subTitle}
         </Text>
-        <Text data-testid="ci-empty-list-description" size="sm" color="dimmed">
-          {props.description}
-        </Text>
+        {props.description && (
+          <Text
+            data-testid="ci-empty-list-description"
+            size="sm"
+            color="dimmed"
+          >
+            {props.description}
+          </Text>
+        )}
         {props.action && props.buttonLabel ? (
           <div className={classes.controls}>
             <Button

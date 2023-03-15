@@ -73,9 +73,3 @@ export type GameEvent = {
   passivePlayerId: string;
   gameId: string;
 };
-
-export type TableRow = {
-  leagueId: string;
-  teamName: string;
-  clubName: string;
-};
