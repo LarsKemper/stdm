@@ -16,11 +16,14 @@ function useLeagueService() {
 
     await axios
       .get(routes.leagues())
-      .then((res) => {
+      .then(async (res) => {
         tableStore.set({
           leagues: res.data.leagues,
-          selectedId: res.data.leagues.at(0).id,
         });
+
+        if (res.data.leagues.at(0).id) {
+          await getTable(res.data.leagues.at(0).id);
+        }
 
         setLoading(false);
       })
@@ -34,6 +37,10 @@ function useLeagueService() {
   }
 
   async function getTable(leagueId: string) {
+    if (tableStore.selectedId === leagueId) {
+      return;
+    }
+
     setLoading(true);
 
     await axios

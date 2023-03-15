@@ -44,6 +44,7 @@ export type Team = {
   name: string;
   clubId: string;
   leagueId: string;
+  club?: Club
 };
 
 export type Player = {
@@ -75,10 +76,4 @@ export type GameEvent = {
   activePlayerId: string;
   passivePlayerId: string;
   gameId: string;
-};
-
-export type TableRow = {
-  leagueId: string;
-  teamName: string;
-  clubName: string;
 };

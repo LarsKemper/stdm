@@ -13,7 +13,7 @@ interface HomeLayoutProps {
 const HomeFooter = dynamic(() => import('@components/home/HomeFooter'));
 
 function HomeLayout(props: HomeLayoutProps) {
-  const { t } = useTranslation(TranslationScopeEnum.HOME);
+  const { t } = useTranslation(TranslationScopeEnum.COMMON);
 
   const links: { link: string; label: string }[] = [
     {

@@ -14,7 +14,7 @@ export async function getAllLeagues(
             throw new InternalServerError('Could not fetch leagues');
         }
 
-        res.status(201).json({
+        res.status(200).json({
             success: true,
             leagues,
         });

@@ -67,11 +67,7 @@ function PlayersPage() {
               loading={loading}
               skeletonList={
                 <Grid gutter="lg">
-                  <StSkeletonList
-                    length={6}
-                    span={1}
-                    skeleton={<StCardSkeleton />}
-                  />
+                  <StSkeletonList length={6} skeleton={<StCardSkeleton />} />
                 </Grid>
               }
               emptyCard={
@@ -88,6 +84,7 @@ function PlayersPage() {
                     return (
                       <StCard
                         key={player.id}
+                        id={player.id}
                         image={player.avatarUrl}
                         topLine={player.number}
                         title={player.name}

@@ -1,13 +1,17 @@
 import { create } from 'zustand';
 import { combine } from 'zustand/middleware';
-import { Team } from '@stTypes/index';
+import { GameViewItem, Team } from '@stTypes/index';
 
 interface TeamStoreState {
+  team: Team | null;
+  games: Array<GameViewItem>;
   teams: Array<Team>;
   names: string[];
 }
 
 const initial: TeamStoreState = {
+  team: null,
+  games: [],
   teams: [],
   names: [],
 };

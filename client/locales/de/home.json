@@ -8,12 +8,6 @@
     "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam",
     "action-button": "Starte durch"
   },
-  "header": {
-    "item-tables-label": "Tabellen",
-    "item-leagues-label": "Ligen",
-    "item-teams-label": "Mannschaften",
-    "item-players-label": "Spieler"
-  },
   "footer": {
     "item-imprint-label": "Impressum"
   }

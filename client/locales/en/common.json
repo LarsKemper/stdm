@@ -4,5 +4,11 @@
     "headline": "Nothing to see here",
     "desc": "Page you are trying to open does not exist. You may have mistyped the address, or the page has been moved to another URL. If you think this is an error contact support.",
     "back-button": "Take me back"
+  },
+  "header": {
+    "item-tables-label": "Tables",
+    "item-leagues-label": "Leagues",
+    "item-teams-label": "Teams",
+    "item-players-label": "Players"
   }
 }

@@ -2,10 +2,14 @@ DROP VIEW IF EXISTS gameView;
 CREATE VIEW gameView AS
     SELECT
     game.id AS id,
+    homeTeam.id AS homeTeamId,
     homeTeam.name AS homeTeam,
+    awayTeam.id AS awayTeamId,
     awayTeam.name AS awayTeam,
     homeClub.name AS homeClub,
+    homeClub.logoUrl AS homeClubLogo,
     awayClub.name AS awayClub,
+    awayClub.logoUrl AS awayClubLogo,
     homeClub.stadium AS stadium,
     homeClub.address AS address,
     homeEvents.goals AS homeGoals,

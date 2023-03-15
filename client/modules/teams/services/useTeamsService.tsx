@@ -12,15 +12,42 @@ function useTeamsService() {
   const { t } = useTranslation(TranslationScopeEnum.PLAYERS);
   const teamStore = useTeamStore();
 
-  async function getTeams() {
+  async function getTeams(id?: string) {
     setLoading(true);
 
     await axios
-      .get(routes.teams())
+      .get(routes.teams(id))
+      .then((res) => {
+        teamStore.set(
+          id
+            ? {
+                team: res.data.team,
+              }
+            : {
+                teams: res.data.teams,
+                names: res.data.teams.map((team: Team) => team.club?.name),
+              }
+        );
+
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        notification.error({
+          title: t('fetch-error-title'),
+          message: err.response?.data || err.message,
+        });
+      });
+  }
+
+  async function getGames(teamId: string) {
+    setLoading(true);
+
+    await axios
+      .get(routes.views(`games/${teamId}`))
       .then((res) => {
         teamStore.set({
-          teams: res.data.teams,
-          names: res.data.teams.map((team: Team) => team.club?.name),
+          games: res.data.games,
         });
 
         setLoading(false);
@@ -37,6 +64,7 @@ function useTeamsService() {
   return {
     loading,
     getTeams,
+    getGames,
   };
 }
 

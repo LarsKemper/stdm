@@ -8,12 +8,6 @@
     "desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam",
     "action-button": "Get started"
   },
-  "header": {
-    "item-tables-label": "Tables",
-    "item-leagues-label": "Leagues",
-    "item-teams-label": "Teams",
-    "item-players-label": "Players"
-  },
   "footer": {
     "item-imprint-label": "Legal Notice"
   }

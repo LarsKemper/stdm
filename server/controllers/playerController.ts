@@ -14,7 +14,7 @@ export async function getAllPlayers(
       throw new InternalServerError('Could not fetch players');
     }
 
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       players,
     });

@@ -12,17 +12,17 @@ import StEmptyList from '@components/shared/StEmptyList/StEmptyList';
 import { IconSearch } from '@tabler/icons';
 import { Team } from '@stTypes/index';
 import { useDebouncedState } from '@mantine/hooks';
-import { teamsPageStyles } from '@modules/teams/TeamsPage.styles';
+import { teamListPageStyles } from '@modules/teams/TeamListPage/TeamListPage.styles';
 import { useTeamStore } from '@modules/teams/stores/useTeamStore';
 import useTeamsService from '@modules/teams/services/useTeamsService';
 import StCardSkeleton from '@components/shared/StCard/StCardSkeleton';
 import StCard from '@components/shared/StCard/StCard';
 
-const useStyles = teamsPageStyles;
+const useStyles = teamListPageStyles;
 
-function TeamsPage() {
+function TeamListPage() {
   const teamStore = useTeamStore();
-  const { t } = useTranslation(TranslationScopeEnum.HOME);
+  const { t } = useTranslation(TranslationScopeEnum.COMMON);
   const { classes } = useStyles();
   const { loading, getTeams } = useTeamsService();
   const { mounted } = useContext(MountedContext);
@@ -71,11 +71,7 @@ function TeamsPage() {
               loading={loading}
               skeletonList={
                 <Grid gutter="lg">
-                  <StSkeletonList
-                    length={6}
-                    span={1}
-                    skeleton={<StCardSkeleton />}
-                  />
+                  <StSkeletonList length={6} skeleton={<StCardSkeleton />} />
                 </Grid>
               }
               emptyCard={
@@ -92,6 +88,7 @@ function TeamsPage() {
                     return (
                       <StCard
                         key={team.id}
+                        id={team.id}
                         imageSize={80}
                         imageMargin={20}
                         image={team.club?.logoUrl || ''}
@@ -113,4 +110,4 @@ function TeamsPage() {
   );
 }
 
-export default TeamsPage;
+export default TeamListPage;
