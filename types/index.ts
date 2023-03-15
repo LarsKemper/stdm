@@ -40,6 +40,7 @@ export type Team = {
   name: string;
   clubId: string;
   leagueId: string;
+  club?: Club;
 };
 
 export type Player = {

@@ -4,23 +4,23 @@ import { notification } from '@util/notification.service';
 import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
 import axios from 'axios';
-import { usePlayerStore } from '@modules/players/stores/usePlayerStore';
-import { Player } from '@stTypes/index';
+import { useTeamStore } from '@modules/teams/stores/useTeamStore';
+import { Team } from '@stTypes/index';
 
-function usePlayersService() {
+function useTeamsService() {
   const [loading, setLoading] = useState<boolean>(false);
   const { t } = useTranslation(TranslationScopeEnum.PLAYERS);
-  const playerStore = usePlayerStore();
+  const teamStore = useTeamStore();
 
-  async function getPlayers() {
+  async function getTeams() {
     setLoading(true);
 
     await axios
-      .get(routes.players())
+      .get(routes.teams())
       .then((res) => {
-        playerStore.set({
-          players: res.data.players,
-          names: res.data.players.map((player: Player) => player.name),
+        teamStore.set({
+          teams: res.data.teams,
+          names: res.data.teams.map((team: Team) => team.club?.name),
         });
 
         setLoading(false);
@@ -36,8 +36,8 @@ function usePlayersService() {
 
   return {
     loading,
-    getPlayers,
+    getTeams,
   };
 }
 
-export default usePlayersService;
+export default useTeamsService;

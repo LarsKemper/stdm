@@ -6,39 +6,43 @@ import StPageTitle from '@components/shared/StPageTitle/StPageTitle';
 import { Container, Grid, Autocomplete, Text } from '@mantine/core';
 import ClientOnly, { MountedContext } from '@components/shared/ClientOnly';
 import WaitForAuth from '@modules/auth/services/WaitForAuth';
-import { playersPageStyles } from '@modules/players/PlayersPage.styles';
 import StListLoader from '@components/shared/StListLoader';
 import StSkeletonList from '@components/shared/StSkeletonList';
 import StEmptyList from '@components/shared/StEmptyList/StEmptyList';
-import { usePlayerStore } from '@modules/players/stores/usePlayerStore';
-import usePlayersService from '@modules/players/services/usePlayersService';
 import { IconSearch } from '@tabler/icons';
-import { Player } from '@stTypes/index';
+import { Team } from '@stTypes/index';
 import { useDebouncedState } from '@mantine/hooks';
-import StCard from '@components/shared/StCard/StCard';
+import { teamsPageStyles } from '@modules/teams/TeamsPage.styles';
+import { useTeamStore } from '@modules/teams/stores/useTeamStore';
+import useTeamsService from '@modules/teams/services/useTeamsService';
 import StCardSkeleton from '@components/shared/StCard/StCardSkeleton';
+import StCard from '@components/shared/StCard/StCard';
 
-const useStyles = playersPageStyles;
+const useStyles = teamsPageStyles;
 
-function PlayersPage() {
-  const playerStore = usePlayerStore();
+function TeamsPage() {
+  const teamStore = useTeamStore();
   const { t } = useTranslation(TranslationScopeEnum.HOME);
   const { classes } = useStyles();
-  const { loading, getPlayers } = usePlayersService();
+  const { loading, getTeams } = useTeamsService();
   const { mounted } = useContext(MountedContext);
   const [term, setTerm] = useDebouncedState('', 200);
-  const [players, setPlayers] = useState<Player[]>(playerStore.players);
+  const [teams, setTeams] = useState<Team[]>(teamStore.teams);
 
   useEffect(() => {
     if (!term || term === '') {
-      return setPlayers(playerStore.players);
+      return setTeams(teamStore.teams);
     }
 
-    setPlayers(players.filter((player) => player.name.startsWith(term)));
-  }, [term, playerStore.players]);
+    setTeams(
+      teams.filter((team) => {
+        return team.name.startsWith(term) || team.club?.name.startsWith(term);
+      })
+    );
+  }, [term, teamStore.teams]);
 
   useEffect(() => {
-    getPlayers().catch();
+    getTeams().catch();
   }, [mounted]);
 
   return (
@@ -47,7 +51,7 @@ function PlayersPage() {
         <HomeLayout title={t('general.page-title')}>
           <Container>
             <StPageTitle
-              title={'Players'}
+              title={'Teams'}
               description={
                 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam\n'
               }
@@ -58,12 +62,12 @@ function PlayersPage() {
               className={classes.search}
               placeholder="Search"
               icon={<IconSearch size="1rem" stroke={1.5} />}
-              data={playerStore.names}
+              data={teamStore.names}
             />
           </Container>
           <Container mt={40} mb={40} className={classes.inner}>
             <StListLoader
-              listLength={playerStore.players.length}
+              listLength={teamStore.teams.length}
               loading={loading}
               skeletonList={
                 <Grid gutter="lg">
@@ -83,15 +87,17 @@ function PlayersPage() {
               }
             >
               <Grid gutter="lg">
-                {players.length > 0 ? (
-                  players.map((player) => {
+                {teams.length > 0 ? (
+                  teams.map((team) => {
                     return (
                       <StCard
-                        key={player.id}
-                        image={player.avatarUrl}
-                        topLine={player.number}
-                        title={player.name}
-                        date={player.birthDate}
+                        key={team.id}
+                        imageSize={80}
+                        imageMargin={20}
+                        image={team.club?.logoUrl || ''}
+                        topLine={team.name}
+                        title={team.club?.name || ''}
+                        bottomLine={team.club?.stadium}
                       />
                     );
                   })
@@ -107,4 +113,4 @@ function PlayersPage() {
   );
 }
 
-export default PlayersPage;
+export default TeamsPage;
