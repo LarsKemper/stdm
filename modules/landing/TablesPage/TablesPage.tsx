@@ -17,10 +17,15 @@ function TablesPage() {
   const { mounted } = useContext(MountedContext);
 
   useEffect(() => {
+    handleSelect(tableStore.selectedId).catch();
     getLeagues().catch();
   }, [mounted]);
 
   async function handleSelect(leagueId: string) {
+    if (!leagueId || leagueId === '') {
+      return;
+    }
+
     await getTable(leagueId).catch();
   }
 
@@ -35,6 +40,7 @@ function TablesPage() {
             />
             <Flex gap="sm" align="center" mt="xl" mb="xl">
               <Select
+                value={tableStore.selectedId}
                 onChange={handleSelect}
                 style={{ width: '100%' }}
                 disabled={loading}

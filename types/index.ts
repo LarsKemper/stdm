@@ -73,3 +73,23 @@ export type GameEvent = {
   passivePlayerId: string;
   gameId: string;
 };
+
+export type GameViewItem = {
+  id: string;
+  homeTeamId: string;
+  homeTeam: string;
+  awayTeamId: string;
+  awayTeam: string;
+  homeClub: string;
+  homeClubLogo: string;
+  awayClub: string;
+  awayClubLogo: string;
+  stadium: string;
+  address: string;
+  homeGoals: number;
+  awayGoals: number;
+  date: Date;
+  reffereeName: string;
+  gameDay: number;
+  season: string;
+};

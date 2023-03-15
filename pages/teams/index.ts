@@ -1,3 +1,3 @@
-import TeamsPage from '@modules/teams/TeamsPage';
+import TeamListPage from '@modules/teams/TeamListPage/TeamListPage';
 //
-export default TeamsPage;
+export default TeamListPage;

@@ -3,8 +3,8 @@ import { Grid } from '@mantine/core';
 
 interface StSkeletonListProps {
   length: number;
-  span: number;
   skeleton: ReactNode;
+  span?: number;
 }
 
 function StSkeletonList(props: StSkeletonListProps) {
@@ -14,7 +14,7 @@ function StSkeletonList(props: StSkeletonListProps) {
     <>
       {items.map((item, index) => {
         return (
-          <Grid.Col span={6} key={index}>
+          <Grid.Col span={props.span || 6} key={index}>
             {props.skeleton}
           </Grid.Col>
         );
