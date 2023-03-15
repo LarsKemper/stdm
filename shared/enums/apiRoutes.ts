@@ -3,6 +3,7 @@ import { apiVersion } from '../../lib/contants';
 export enum ApiRoutes {
   AUTH = '/auth',
   PLAYERS = '/players',
+  TEAMS = '/teams',
 }
 
 /**
