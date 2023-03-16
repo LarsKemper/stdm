@@ -2,8 +2,6 @@ import React, { ReactNode } from 'react';
 import { Table } from '@mantine/core';
 import StDataTableSkeleton from '@components/shared/StDataTable/StDataTableSkeleton';
 import StEmptyList from '@components/shared/StEmptyList/StEmptyList';
-import useTranslation from 'next-translate/useTranslation';
-import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
 
 interface StDataTableProps {
   columns: ReactNode;
@@ -13,8 +11,6 @@ interface StDataTableProps {
 }
 
 function StDataTable(props: StDataTableProps) {
-  const { t } = useTranslation(TranslationScopeEnum.HOME);
-
   if (props.loading) {
     return <StDataTableSkeleton />;
   }

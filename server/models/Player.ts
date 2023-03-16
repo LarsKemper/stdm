@@ -1,6 +1,6 @@
-import {Player} from '../shared/types';
+import { Player } from '../shared/types';
 import { conn } from '../lib/db';
-import {RowDataPacket} from "mysql2/index";
+import { RowDataPacket } from 'mysql2/index';
 
 // player schema here if needed
 
@@ -50,7 +50,7 @@ export async function getPlayers(
         avatarUrl: row.avatarUrl,
         teamId: row.teamId,
         countryId: row.countryId,
-        country: row.country
+        country: row.country,
       });
     });
   });

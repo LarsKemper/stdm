@@ -1,22 +1,4 @@
-import {
-  Avatar,
-  Table,
-  Group,
-  Text,
-  ActionIcon,
-  Menu,
-  ScrollArea,
-  Anchor,
-  Flex,
-} from '@mantine/core';
-import {
-  IconPencil,
-  IconMessages,
-  IconNote,
-  IconReportAnalytics,
-  IconTrash,
-  IconDots,
-} from '@tabler/icons';
+import { Table, Text, ScrollArea, Anchor, Flex } from '@mantine/core';
 import StFactTableSkeleton from '@components/shared/StFactTable/StFactTableSkeleton';
 
 interface StFactTableProps {

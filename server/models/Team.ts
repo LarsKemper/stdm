@@ -1,6 +1,6 @@
 import { conn } from '../lib/db';
-import {Team} from '../shared/types';
-import {RowDataPacket} from "mysql2/index";
+import { Team } from '../shared/types';
+import { RowDataPacket } from 'mysql2/index';
 
 export enum TeamQueries {
   GET_ALL = "SELECT *, (SELECT JSON_OBJECT('name', c.name, 'stadium', c.stadium, 'logoUrl', c.logoUrl, 'websiteUrl', c.websiteUrl, 'primaryColor', c.primaryColor, 'secondaryColor', c.secondaryColor, 'address', c.address, 'city', c.city) FROM club c WHERE c.id = team.clubId) AS club FROM team",
@@ -12,7 +12,7 @@ export enum TeamQueries {
  *
  * @param {string} sql SQL query
  * @param {Array | string | number} params Query parameters
- * @returns {Promise<Player[]>} Promise which resolves to the result of the query
+ * @returns {Promise<Team[] | Team>} Promise which resolves to the result of the query
  */
 export async function getTeams(
   sql: string,
@@ -42,7 +42,7 @@ export async function getTeams(
         name: row.name,
         clubId: row.clubId,
         leagueId: row.leagueId,
-        club: row.club
+        club: row.club,
       });
     });
   });

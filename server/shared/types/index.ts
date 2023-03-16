@@ -44,7 +44,7 @@ export type Team = {
   name: string;
   clubId: string;
   leagueId: string;
-  club?: Club
+  club?: Club;
 };
 
 export type Player = {
@@ -58,7 +58,7 @@ export type Player = {
   avatarUrl: string;
   teamId: string;
   countryId: string;
-  country?: Country
+  country?: Country;
 };
 
 export type Game = {

@@ -4,8 +4,6 @@ import { notification } from '@util/notification.service';
 import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
 import axios from 'axios';
-import { useTeamStore } from '@modules/teams/stores/useTeamStore';
-import { Team } from '@stTypes/index';
 import { useGameStore } from '@modules/games/stores/useGameStore';
 
 function useGamesService() {
@@ -61,7 +59,6 @@ function useGamesService() {
     await axios
       .get(routes.views(`game-events/${gameId}`))
       .then((res) => {
-        console.log(res);
         gameStore.set({
           events: res.data.events,
         });

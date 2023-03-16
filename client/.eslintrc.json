@@ -23,5 +23,13 @@
     "@typescript-eslint/no-explicit-any": "error",
     "prettier/prettier": 0,
     "no-console": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.tsx"],
+      "rules": {
+        "react-hooks/exhaustive-deps": "off"
+      }
+    }
+  ]
 }

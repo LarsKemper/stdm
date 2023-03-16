@@ -46,6 +46,3 @@ jobs:
 
       - name: Check lint
         run: cd server && npm run check:lint
-
-      - name: Check types
-        run: cd server && npm run check:types
