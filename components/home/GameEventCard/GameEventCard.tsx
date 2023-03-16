@@ -38,7 +38,7 @@ function GameEventCard(props: GameEventCardProps) {
         <Flex direction="column" justify="flex-start">
           <Flex mb="xs" align="center" justify="flex-start">
             <Text w={40} px="sm" className={classes.headline}>
-              {props.event.minute}'
+              {props.event.minute}&apos;
             </Text>
             <Text ml="xl" className={classes.headline}>
               {t(`game-details.event.${props.event.event}`)}

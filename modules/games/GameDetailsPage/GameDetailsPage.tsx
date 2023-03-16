@@ -15,8 +15,6 @@ import {
   StFactTable,
 } from '@components/shared/StFactTable/StFactTable';
 import GameEventCard from '@components/home/GameEventCard/GameEventCard';
-import StSkeletonList from '@components/shared/StSkeletonList';
-import StEmptyList from '@components/shared/StEmptyList/StEmptyList';
 import StListLoader from '@components/shared/StListLoader';
 
 const useStyles = gameDetailsPageStyles;

@@ -1,3 +1,3 @@
-import TablesPage from '@modules/landing/TablesPage/TablesPage';
+import TablesPage from '@modules/landing/TablesPage';
 //
 export default TablesPage;
