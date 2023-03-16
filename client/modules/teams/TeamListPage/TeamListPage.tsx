@@ -84,6 +84,7 @@ function TeamListPage() {
                         imageMargin={20}
                         image={team.club?.logoUrl || ''}
                         topLine={team.name}
+                        topLevelLink={'/teams/'}
                         title={team.club?.name || ''}
                         bottomLine={team.club?.stadium}
                       />

@@ -1,5 +1,5 @@
 import { conn } from '../lib/db';
-import {League, Team} from '../shared/types';
+import {League} from '../shared/types';
 import {RowDataPacket} from "mysql2";
 
 export enum LeagueQueries {

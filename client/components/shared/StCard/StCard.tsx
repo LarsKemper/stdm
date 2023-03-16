@@ -7,6 +7,7 @@ interface CardProps {
   image: string;
   topLine: string | number;
   title: string;
+  topLevelLink: string;
   date?: Date;
   bottomLine?: string;
   imageSize?: number;
@@ -20,7 +21,7 @@ function StCard(props: CardProps) {
 
   return (
     <Grid.Col span={6}>
-      <Link href={`/teams/${props.id}`} passHref legacyBehavior>
+      <Link href={`${props.topLevelLink}${props.id}`} passHref legacyBehavior>
         <Card withBorder radius="md" p={0} className={classes.card}>
           <Group noWrap spacing={0}>
             <Image

@@ -1,3 +1,3 @@
-import PlayersPage from '@modules/players/PlayersPage';
+import PlayerListPage from '@modules/players/PlayerListPage/PlayerListPage';
 //
-export default PlayersPage;
+export default PlayerListPage;

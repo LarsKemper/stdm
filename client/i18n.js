@@ -13,7 +13,7 @@ module.exports = {
   locales: ['en', 'de'],
   defaultLocale: 'en',
   pages: {
-    '*': ['common'],
+    '*': ['common', 'home'],
     '/': ['home'],
     '/players': ['home'],
     '/teams': ['home'],
