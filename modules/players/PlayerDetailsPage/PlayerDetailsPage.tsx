@@ -6,7 +6,10 @@ import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
 import { Avatar, Container, Group, Skeleton, Text } from '@mantine/core';
 import { useRouter } from 'next/router';
-import { FactTableType, StFactTable } from '@components/shared/StFactTable';
+import {
+  FactTableType,
+  StFactTable,
+} from '@components/shared/StFactTable/StFactTable';
 import { playerDetailsStyles } from '@modules/players/PlayerDetailsPage/PlayerDetailsPage.styles';
 import { usePlayerStore } from '@modules/players/stores/usePlayerStore';
 import usePlayersService from '@modules/players/services/usePlayersService';

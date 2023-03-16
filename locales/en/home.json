@@ -61,6 +61,21 @@
       "city": "City"
     }
   },
+  "game-details": {
+    "page-title": "Game",
+    "facts": {
+      "stadium": "Stadium",
+      "address": "Address",
+      "reff": "Referee",
+      "gameDay": "Game day",
+      "season": "Season"
+    },
+    "event": {
+      "GOAL": "Goal scored!",
+      "YELLOW": "Yellow card",
+      "RED": "Red card"
+    }
+  },
   "footer": {
     "item-imprint-label": "Legal Notice"
   },

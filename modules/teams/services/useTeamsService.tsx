@@ -40,31 +40,9 @@ function useTeamsService() {
       });
   }
 
-  async function getGames(teamId: string) {
-    setLoading(true);
-
-    await axios
-      .get(routes.views(`games/${teamId}`))
-      .then((res) => {
-        teamStore.set({
-          games: res.data.games,
-        });
-
-        setLoading(false);
-      })
-      .catch((err) => {
-        setLoading(false);
-        notification.error({
-          title: t('fetch-error-title'),
-          message: err.response?.data || err.message,
-        });
-      });
-  }
-
   return {
     loading,
     getTeams,
-    getGames,
   };
 }
 

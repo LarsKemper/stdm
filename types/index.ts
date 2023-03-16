@@ -73,6 +73,9 @@ export type GameEvent = {
   activePlayerId: string;
   passivePlayerId: string;
   gameId: string;
+  teamId: string;
+  activePlayer?: Player;
+  passivePlayer?: Player;
 };
 
 export type GameViewItem = {
@@ -91,6 +94,6 @@ export type GameViewItem = {
   awayGoals: number;
   date: Date;
   reffereeName: string;
-  gameDay: number;
+  gameday: number;
   season: string;
 };

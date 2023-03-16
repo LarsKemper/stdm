@@ -17,6 +17,7 @@ import {
   IconTrash,
   IconDots,
 } from '@tabler/icons';
+import StFactTableSkeleton from '@components/shared/StFactTable/StFactTableSkeleton';
 
 interface StFactTableProps {
   loading: boolean;
@@ -37,7 +38,7 @@ export type FactTableItem = {
 
 export function StFactTable(props: StFactTableProps) {
   if (props.loading || !props.facts) {
-    return <div>loading</div>;
+    return <StFactTableSkeleton />;
   }
 
   const rows = props.facts.map((fact) => (
@@ -60,6 +61,8 @@ export function StFactTable(props: StFactTableProps) {
           <Flex align="center" justify="start">
             <div
               style={{
+                border: '1px solid black',
+                borderRadius: '4px',
                 backgroundColor: fact.value || 'black',
                 width: '25px',
                 height: '25px',
@@ -70,7 +73,7 @@ export function StFactTable(props: StFactTableProps) {
       )}
       {fact.type === FactTableType.TEXT && (
         <td>
-          <Text fz="xs">{fact.value}</Text>
+          <Text>{fact.value}</Text>
         </td>
       )}
     </tr>
