@@ -58,6 +58,7 @@ export type Player = {
   avatarUrl: string;
   teamId: string;
   countryId: string;
+  country?: Country
 };
 
 export type Game = {

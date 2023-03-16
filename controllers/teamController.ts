@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import {InternalServerError, InvalidRequestError, NotFoundError} from '../shared/exceptions/Exceptions';
+import {InternalServerError, InvalidRequestError} from '../shared/exceptions/Exceptions';
 import { getTeams, TeamQueries } from '../models/Team';
-import {getLeagues, LeagueQueries} from "@models/League";
 
 export async function getAllTeams(
   req: Request,

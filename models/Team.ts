@@ -3,7 +3,7 @@ import {Team} from '../shared/types';
 import {RowDataPacket} from "mysql2/index";
 
 export enum TeamQueries {
-  GET_ALL = "SELECT team.id, team.name, team.clubId, (SELECT JSON_OBJECT('name', c.name, 'stadium', c.stadium, 'logoUrl', c.logoUrl, 'website', c.website, 'primaryColor', c.primaryColor, 'secondaryColor', c.secondaryColor, 'address', c.address, 'city', c.city) FROM club c WHERE c.id = team.clubId) AS club FROM team",
+  GET_ALL = "SELECT team.id, team.name, team.clubId, (SELECT JSON_OBJECT('name', c.name, 'stadium', c.stadium, 'logoUrl', c.logoUrl, 'websiteUrl', c.websiteUrl, 'primaryColor', c.primaryColor, 'secondaryColor', c.secondaryColor, 'address', c.address, 'city', c.city) FROM club c WHERE c.id = team.clubId) AS club FROM team",
   GET_BY_ID = "SELECT team.id, team.name, team.clubId, (SELECT JSON_OBJECT('name', c.name, 'stadium', c.stadium, 'logoUrl', c.logoUrl, 'websiteUrl', c.websiteUrl, 'primaryColor', c.primaryColor, 'secondaryColor', c.secondaryColor, 'address', c.address, 'city', c.city) FROM club c WHERE c.id = team.clubId) AS club FROM team WHERE id = ?",
 }
 
