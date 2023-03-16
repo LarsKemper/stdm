@@ -14,7 +14,8 @@ export enum API {
 export const routes = {
   register: (): string => `${apiBase}/${API.REGISTER}`,
   login: (): string => `${apiBase}/${API.LOGIN}`,
-  players: (): string => `${apiBase}/${API.PLAYERS}`,
+  players: (id?: string): string =>
+    `${apiBase}/${API.PLAYERS}${id ? `/${id}` : ''}`,
   teams: (id?: string): string =>
     `${apiBase}/${API.TEAMS}${id ? `/${id}` : ''}`,
   leagues: (): string => `${apiBase}/${API.LEAGUES}`,

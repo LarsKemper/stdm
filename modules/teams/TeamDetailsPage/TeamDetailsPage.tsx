@@ -19,10 +19,10 @@ import { FactTableType, StFactTable } from '@components/shared/StFactTable';
 const useStyles = teamDetailsPageStyles;
 
 function TeamDetailsPage() {
+  const { t } = useTranslation(TranslationScopeEnum.HOME);
   const [teamLoading, setTeamLoading] = useState<boolean>(true);
   const [gamesLoading, setGamesLoading] = useState<boolean>(true);
   const { classes } = useStyles();
-  const { t } = useTranslation(TranslationScopeEnum.HOME);
   const teamStore = useTeamStore();
   const { getGames, getTeams } = useTeamsService();
   const { mounted } = useContext(MountedContext);
@@ -77,32 +77,32 @@ function TeamDetailsPage() {
                 loading={loading}
                 facts={[
                   {
-                    label: 'Website',
+                    label: t('team-details.facts.website'),
                     value: teamStore.team?.club?.websiteUrl,
                     type: FactTableType.LINK,
                   },
                   {
-                    label: 'Primary color',
+                    label: t('team-details.facts.primary-color'),
                     value: teamStore.team?.club?.primaryColor,
                     type: FactTableType.COLOR,
                   },
                   {
-                    label: 'Secondary color',
+                    label: t('team-details.facts.secondary-color'),
                     value: teamStore.team?.club?.secondaryColor,
                     type: FactTableType.COLOR,
                   },
                   {
-                    label: 'Stadium',
+                    label: t('team-details.facts.stadium'),
                     value: teamStore.team?.club?.stadium,
                     type: FactTableType.TEXT,
                   },
                   {
-                    label: 'Address',
+                    label: t('team-details.facts.address'),
                     value: teamStore.team?.club?.address,
                     type: FactTableType.TEXT,
                   },
                   {
-                    label: 'City',
+                    label: t('team-details.facts.city'),
                     value: teamStore.team?.club?.city,
                     type: FactTableType.TEXT,
                   },

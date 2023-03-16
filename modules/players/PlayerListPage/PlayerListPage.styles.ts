@@ -1,6 +1,6 @@
 import { createStyles } from '@mantine/core';
 
-export const playersPageStyles = createStyles((theme) => ({
+export const playerListPageStyles = createStyles((theme) => ({
   inner: {
     display: 'flex',
     justifyContent: 'space-between',

@@ -3,25 +3,24 @@ import HomeLayout from '@modules/layout/HomeLayout';
 import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
 import StPageTitle from '@components/shared/StPageTitle/StPageTitle';
-import { Container, Grid, Autocomplete, Text } from '@mantine/core';
+import { Container, Grid, Text } from '@mantine/core';
 import ClientOnly, { MountedContext } from '@components/shared/ClientOnly';
 import WaitForAuth from '@modules/auth/services/WaitForAuth';
-import { playersPageStyles } from '@modules/players/PlayersPage.styles';
+import { playerListPageStyles } from '@modules/players/PlayerListPage/PlayerListPage.styles';
 import StListLoader from '@components/shared/StListLoader';
 import StSkeletonList from '@components/shared/StSkeletonList';
 import StEmptyList from '@components/shared/StEmptyList/StEmptyList';
 import { usePlayerStore } from '@modules/players/stores/usePlayerStore';
 import usePlayersService from '@modules/players/services/usePlayersService';
-import { IconSearch } from '@tabler/icons';
 import { Player } from '@stTypes/index';
 import { useDebouncedState } from '@mantine/hooks';
 import StCard from '@components/shared/StCard/StCard';
 import StCardSkeleton from '@components/shared/StCard/StCardSkeleton';
 import StSearch from '@components/shared/StSearch';
 
-const useStyles = playersPageStyles;
+const useStyles = playerListPageStyles;
 
-function PlayersPage() {
+function PlayerListPage() {
   const playerStore = usePlayerStore();
   const { t } = useTranslation(TranslationScopeEnum.HOME);
   const { classes } = useStyles();
@@ -77,6 +76,7 @@ function PlayersPage() {
                         key={player.id}
                         id={player.id}
                         image={player.avatarUrl}
+                        topLevelLink={'/players/'}
                         topLine={`${player.number} - ${player.position}`}
                         title={player.name}
                         date={player.birthDate}
@@ -95,4 +95,4 @@ function PlayersPage() {
   );
 }
 
-export default PlayersPage;
+export default PlayerListPage;

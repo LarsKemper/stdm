@@ -26,6 +26,17 @@
       "sub-title": "Zurzeit liegen noch keine Ergebnisse vor."
     }
   },
+  "player-details": {
+    "page-title": "Spieler",
+    "facts": {
+      "birthday": "Geburtstag",
+      "country": "Land",
+      "position": "Position",
+      "number": "Trikotnummer",
+      "height": "Größe",
+      "weight": "Gewicht"
+    }
+  },
   "players-list": {
     "page-title": "Spieler",
     "title": "Spieler",
@@ -33,6 +44,21 @@
     "empty": {
       "title": "Es wurden keine Ergebnisse gefunden...",
       "sub-title": "Zurzeit liegen noch keine Ergebnisse vor."
+    }
+  },
+  "team-details": {
+    "page-title": "Mannschaft",
+    "empty": {
+      "title": "Es wurden keine Ergebnisse gefunden...",
+      "sub-title": "Zurzeit liegen noch keine Ergebnisse vor."
+    },
+    "facts": {
+      "website": "Website",
+      "primary-color": "Primärefarbe",
+      "secondary-color": "Sekundärfarbe",
+      "stadium": "Stadium",
+      "address": "Adresse",
+      "city": "Stadt"
     }
   },
   "footer": {

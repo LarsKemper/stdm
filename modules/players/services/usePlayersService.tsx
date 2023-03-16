@@ -12,16 +12,22 @@ function usePlayersService() {
   const { t } = useTranslation(TranslationScopeEnum.HOME);
   const playerStore = usePlayerStore();
 
-  async function getPlayers() {
+  async function getPlayers(id?: string) {
     setLoading(true);
 
     await axios
-      .get(routes.players())
+      .get(routes.players(id))
       .then((res) => {
-        playerStore.set({
-          players: res.data.players,
-          names: res.data.players.map((player: Player) => player.name),
-        });
+        playerStore.set(
+          id
+            ? {
+                player: res.data.player,
+              }
+            : {
+                players: res.data.players,
+                names: res.data.players.map((player: Player) => player.name),
+              }
+        );
 
         setLoading(false);
       })

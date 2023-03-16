@@ -26,6 +26,17 @@
       "sub-title": "At the moment no results are available."
     }
   },
+  "player-details": {
+    "page-title": "Player",
+    "facts": {
+      "birthday": "Birthday",
+      "country": "Country",
+      "position": "Position",
+      "number": "Jersey number",
+      "height": "Height",
+      "weight": "Weight"
+    }
+  },
   "players-list": {
     "page-title": "Players",
     "title": "Players",
@@ -33,6 +44,21 @@
     "empty": {
       "title": "No results were found...",
       "sub-title": "At the moment no results are available."
+    }
+  },
+  "team-details": {
+    "page-title": "Team",
+    "empty": {
+      "title": "No results were found...",
+      "sub-title": "At the moment no results are available."
+    },
+    "facts": {
+      "website": "Website",
+      "primary-color": "Primary color",
+      "secondary-color": "Secondary color",
+      "stadium": "Stadium",
+      "address": "Address",
+      "city": "City"
     }
   },
   "footer": {
