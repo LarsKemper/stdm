@@ -6,7 +6,7 @@ import {RowDataPacket} from "mysql2/index";
 
 export enum PlayerQueries {
   GET_ALL = 'SELECT * FROM player',
-  GET_BY_ID = "SELECT player.id, player.name, player.position, player.number, player.height, player.weight, player.birthDate, player.avatarUrl, (SELECT JSON_OBJECT('name', country.name, 'flagUrl', country.flagUrl) FROM country WHERE country.id = player.countryId) AS country FROM player WHERE id = ?",
+  GET_BY_ID = "SELECT *, (SELECT JSON_OBJECT('name', country.name, 'flagUrl', country.flagUrl) FROM country WHERE country.id = player.countryId) AS country FROM player WHERE id = ?",
 }
 
 /**
