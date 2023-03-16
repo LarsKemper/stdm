@@ -5,7 +5,7 @@ import WaitForAuth from '@modules/auth/services/WaitForAuth';
 import HomeLayout from '@modules/layout/HomeLayout';
 import useTranslation from 'next-translate/useTranslation';
 import { TranslationScopeEnum } from '@enums/TranslationScopeEnum';
-import { Container, Group, Avatar, Text, Skeleton, Grid } from '@mantine/core';
+import { Avatar, Container, Grid, Group, Skeleton, Text } from '@mantine/core';
 import useTeamsService from '@modules/teams/services/useTeamsService';
 import { useRouter } from 'next/router';
 import { useTeamStore } from '@modules/teams/stores/useTeamStore';
@@ -14,6 +14,7 @@ import StListLoader from '@components/shared/StListLoader';
 import StSkeletonList from '@components/shared/StSkeletonList';
 import GameCard from '@components/GameCard/GameCard';
 import StEmptyList from '@components/shared/StEmptyList/StEmptyList';
+import { FactTableType, StFactTable } from '@components/shared/StFactTable';
 
 const useStyles = teamDetailsPageStyles;
 
@@ -70,6 +71,43 @@ function TeamDetailsPage() {
                   </div>
                 </>
               )}
+            </Group>
+            <Group mb="xl">
+              <StFactTable
+                loading={loading}
+                facts={[
+                  {
+                    label: 'Website',
+                    value: teamStore.team?.club?.websiteUrl,
+                    type: FactTableType.LINK,
+                  },
+                  {
+                    label: 'Primary color',
+                    value: teamStore.team?.club?.primaryColor,
+                    type: FactTableType.COLOR,
+                  },
+                  {
+                    label: 'Secondary color',
+                    value: teamStore.team?.club?.secondaryColor,
+                    type: FactTableType.COLOR,
+                  },
+                  {
+                    label: 'Stadium',
+                    value: teamStore.team?.club?.stadium,
+                    type: FactTableType.TEXT,
+                  },
+                  {
+                    label: 'Address',
+                    value: teamStore.team?.club?.address,
+                    type: FactTableType.TEXT,
+                  },
+                  {
+                    label: 'City',
+                    value: teamStore.team?.club?.city,
+                    type: FactTableType.TEXT,
+                  },
+                ]}
+              />
             </Group>
             <StListLoader
               listLength={teamStore.games.length}
