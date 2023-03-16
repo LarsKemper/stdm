@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { teamDetailsPageStyles } from '@modules/teams/TeamDetailsPage/TeamDetailsPage.styles';
 import ClientOnly, { MountedContext } from '@components/shared/ClientOnly';
 import WaitForAuth from '@modules/auth/services/WaitForAuth';
@@ -9,34 +9,38 @@ import { Avatar, Container, Grid, Group, Skeleton, Text } from '@mantine/core';
 import useTeamsService from '@modules/teams/services/useTeamsService';
 import { useRouter } from 'next/router';
 import { useTeamStore } from '@modules/teams/stores/useTeamStore';
-import GameCardSkeleton from '@components/GameCard/GameCardSkeleton';
+import GameCardSkeleton from '@components/home/GameCard/GameCardSkeleton';
 import StListLoader from '@components/shared/StListLoader';
 import StSkeletonList from '@components/shared/StSkeletonList';
-import GameCard from '@components/GameCard/GameCard';
-import StEmptyList from '@components/shared/StEmptyList/StEmptyList';
-import { FactTableType, StFactTable } from '@components/shared/StFactTable';
+import GameCard from '@components/home/GameCard/GameCard';
+import {
+  FactTableType,
+  StFactTable,
+} from '@components/shared/StFactTable/StFactTable';
+import useGamesService from '@modules/games/services/useGamesService';
+import { useGameStore } from '@modules/games/stores/useGameStore';
 
 const useStyles = teamDetailsPageStyles;
 
 function TeamDetailsPage() {
   const { t } = useTranslation(TranslationScopeEnum.HOME);
-  const [teamLoading, setTeamLoading] = useState<boolean>(true);
-  const [gamesLoading, setGamesLoading] = useState<boolean>(true);
   const { classes } = useStyles();
   const teamStore = useTeamStore();
-  const { getGames, getTeams } = useTeamsService();
+  const gameStore = useGameStore();
+  const { loading: teamsLoading, getTeams } = useTeamsService();
+  const { loading: gamesLoading, getGames } = useGamesService();
   const { mounted } = useContext(MountedContext);
   const router = useRouter();
 
-  const loading = teamLoading || gamesLoading;
+  const loading = teamsLoading || gamesLoading;
 
   useEffect(() => {
     if (!router.query.teamId) {
       return router.back();
     }
 
-    getTeams(router.query.teamId as string).then(() => setTeamLoading(false));
-    getGames(router.query.teamId as string).then(() => setGamesLoading(false));
+    getTeams(router.query.teamId as string).catch();
+    getGames(router.query.teamId as string).catch();
   }, [mounted, router]);
 
   return (
@@ -110,10 +114,10 @@ function TeamDetailsPage() {
               />
             </Group>
             <StListLoader
-              listLength={teamStore.games.length}
+              listLength={gameStore.games.length}
               loading={loading}
               skeletonList={
-                <Grid gutter="lg">
+                <Grid gutter="lg" mb="xl">
                   <StSkeletonList
                     length={4}
                     span={12}
@@ -121,16 +125,11 @@ function TeamDetailsPage() {
                   />
                 </Grid>
               }
-              emptyCard={
-                <StEmptyList
-                  title={t('team-details.empty.title')}
-                  subTitle={t('team-details.empty.sub-title')}
-                />
-              }
+              emptyCard={<></>}
             >
-              <Grid gutter="lg">
-                {teamStore.games.length > 0 &&
-                  teamStore.games.map((game) => {
+              <Grid gutter="lg" mb="xl">
+                {gameStore.games.length > 0 &&
+                  gameStore.games.map((game) => {
                     return <GameCard key={game.id} game={game} />;
                   })}
               </Grid>

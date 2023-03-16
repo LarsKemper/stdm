@@ -61,6 +61,21 @@
       "city": "Stadt"
     }
   },
+  "game-details": {
+    "page-title": "Spiel",
+    "facts": {
+      "stadium": "Stadion",
+      "address": "Adresse",
+      "reff": "Schiedsrichter",
+      "gameDay": "Spieltag",
+      "season": "Saison"
+    },
+    "event": {
+      "GOAL": "Tor geschossen!",
+      "YELLOW": "Gelbe Karte",
+      "RED": "Rote Karte"
+    }
+  },
   "footer": {
     "item-imprint-label": "Impressum"
   },
