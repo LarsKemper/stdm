@@ -1,7 +1,17 @@
 import { Request, Response, NextFunction } from 'express';
-import {InternalServerError, InvalidRequestError} from '../shared/exceptions/Exceptions';
+import {
+  InternalServerError,
+  InvalidRequestError,
+} from '../shared/exceptions/Exceptions';
 import { getTeams, TeamQueries } from '../models/Team';
 
+/**
+ * get all teams
+ *
+ * @param {Request} req Request object
+ * @param {Response} res Response object
+ * @param {NextFunction} next Next function
+ */
 export async function getAllTeams(
   req: Request,
   res: Response,
@@ -23,11 +33,14 @@ export async function getAllTeams(
   }
 }
 
-export async function getTeam(
-    req: Request,
-    res: Response,
-    next: NextFunction
-) {
+/**
+ * get team by query id
+ *
+ * @param {Request} req Request object
+ * @param {Response} res Response object
+ * @param {NextFunction} next Next function
+ */
+export async function getTeam(req: Request, res: Response, next: NextFunction) {
   try {
     const { params } = req;
 

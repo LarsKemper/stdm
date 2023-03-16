@@ -35,11 +35,13 @@ export function intiDatabase(): void {
     throw new Error(`failed to initialized pool: ${error}`);
   }
 }
+
 /**
  * Builds the database
  *
+ * @returns {void}
  */
-function buildDatabase() {
+function buildDatabase(): void {
   const initQuery = fs
     .readFileSync('./resources/stdm-db-v2.sql')
     .toString()
@@ -58,20 +60,22 @@ function buildDatabase() {
     });
   });
 }
+
 /**
  * Adds demodata
  *
+ * @returns {void}
  */
-function demoData() {
+function demoData(): void {
   const files = fs.readdirSync('./resources/seed/');
   files.forEach((filename) => {
-    const querry = fs
+    const query = fs
       .readFileSync('./resources/seed/' + filename)
       .toString()
       .replace(/[\n\r]/g, '')
       .split(';');
 
-    querry.forEach((e) => {
+    query.forEach((e) => {
       if (!e || e.length < 1) {
         return;
       }
@@ -86,16 +90,21 @@ function demoData() {
   });
 }
 
-function triggers() {
+/**
+ * Adds triggers
+ *
+ * @returns {void}
+ */
+function triggers(): void {
   const files = fs.readdirSync('./resources/triggers/');
   files.forEach((filename) => {
-    const querry = fs
+    const query = fs
       .readFileSync('./resources/triggers/' + filename)
       .toString()
       .replace(/[\n\r]/g, '')
       .split(';');
 
-    querry.forEach((e) => {
+    query.forEach((e) => {
       if (!e || e.length < 1) {
         return;
       }
@@ -110,16 +119,21 @@ function triggers() {
   });
 }
 
-function views() {
+/**
+ * Adds views
+ *
+ * @returns {void}
+ */
+function views(): void {
   const files = fs.readdirSync('./resources/views/');
   files.forEach((filename) => {
-    const querry = fs
+    const query = fs
       .readFileSync('./resources/views/' + filename)
       .toString()
       .replace(/[\n\r]/g, '')
       .split(';');
 
-    querry.forEach((e) => {
+    query.forEach((e) => {
       if (!e || e.length < 1) {
         return;
       }

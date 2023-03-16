@@ -1,5 +1,10 @@
 import express from 'express';
-import {getGame, getGameEvents, getGames, getTable} from '../controllers/viewController';
+import {
+  getGame,
+  getGameEvents,
+  getGames,
+  getTable,
+} from '../controllers/viewController';
 
 const router = express.Router();
 

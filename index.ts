@@ -10,8 +10,8 @@ import { ApiRoutes, route } from './shared/enums/apiRoutes';
 import authRoutes from './routes/auth.routes';
 import playerRoutes from './routes/player.routes';
 import teamRoutes from './routes/team.routes';
-import leagueRoutes from "./routes/league.routes";
-import viewRoutes from "./routes/view.routes";
+import leagueRoutes from './routes/league.routes';
+import viewRoutes from './routes/view.routes';
 import './lib/db';
 
 const app: Express = express();
