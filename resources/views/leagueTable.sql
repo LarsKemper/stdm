@@ -15,6 +15,21 @@ CREATE VIEW leagueTable AS
         IFNULL(SUM(awayGameView.homeGoals), 0)
     ) AS goalsGot,
     (
+        SELECT COUNT(*) FROM gameView WHERE gameView.homeTeamId = teamId AND gameView.homeGoals > gameView.awayGoals
+    ) as homeWins,
+    (
+        SELECT COUNT(*) FROM gameView WHERE gameView.awayTeamId = teamId AND gameView.awayGoals > gameView.homeGoals
+    ) as awayWins,
+    (
+        SELECT COUNT(*) FROM gameView WHERE gameView.homeTeamId = teamId OR gameView.awayTeamId = teamId AND gameView.homeGoals = gameView.awayGoals
+    ) as draw,
+    (
+        SELECT COUNT(*) FROM gameView WHERE gameView.homeTeamId = teamId AND gameView.homeGoals < gameView.awayGoals
+    ) as homeLosses,
+    (
+        SELECT COUNT(*) FROM gameView WHERE gameView.awayTeamId = teamId AND gameView.awayGoals < gameView.homeGoals
+    ) as awayLosses,
+    (
         SUM(
             CASE
             WHEN homeGameView.homeGoals > homeGameView.awayGoals THEN 3
