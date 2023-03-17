@@ -12,7 +12,7 @@ import { RowDataPacket } from 'mysql2/index';
 
 export enum ViewQueries {
   GET_TABLE_BY_LEAGUE_ID = 'SELECT * FROM leagueTable WHERE leagueId = ? AND season = ? ORDER BY points DESC',
-  GET_GAMES_BY_GAMES_BY_TEAM_ID = 'SELECT * FROM gameView WHERE homeTeamId = ? AND season = ? ORDER BY date ASC',
+  GET_GAMES_BY_GAMES_BY_TEAM_ID = 'SELECT * FROM gameView WHERE homeTeamId = ? OR awayTeamId = ? AND season = ? ORDER BY date ASC',
   GET_GAME_BY_ID = 'SELECT * FROM gameView WHERE id = ?',
   GET_GAME_EVENTS_BY_GAME_ID = "SELECT *, (SELECT JSON_OBJECT('name', player.name, 'avatarUrl', player.avatarUrl) FROM player WHERE player.id = gameEventTeamView.activePlayer) AS activePlayer FROM gameEventTeamView WHERE gameId = ? ORDER BY minute DESC",
 }
@@ -104,7 +104,7 @@ export async function getGames(
     const games = await new Promise((resolve, reject) => {
       conn.query(
         ViewQueries.GET_GAMES_BY_GAMES_BY_TEAM_ID,
-        [params.teamId, getCurrentSeason()],
+        [params.teamId, params.teamId, getCurrentSeason()],
         (err, result) => {
           if (err) {
             return reject(err);
