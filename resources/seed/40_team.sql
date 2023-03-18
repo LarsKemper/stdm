@@ -15,8 +15,5 @@ VALUES
     ('1. Mannschaft', 8, 1),
     ('1. Mannschaft', 9, 1),
     ('1. Mannschaft', 10, 1),
-    ('1. Mannschaft', 11, 2),
-    ('1. Mannschaft', 12, 2),
-    ('1. Mannschaft', 13, 2),
-    ('1. Mannschaft', 14, 2),
-    ('1. Mannschaft', 15, 2);
+    ('1. Mannschaft', 11, 1),
+    ('1. Mannschaft', 12, 1);
